@@ -33,7 +33,7 @@ distr_cat_org_br = distr_cat_org_br.rename(columns={'CO_IES':'Total_IES'})
 # Carrega dados IES agregados por UF
 # ------------------------------------------------------------------------
 
-ies_agg_UF = pd.read_csv('./arquivos/dados_ies_agg_UF.csv', sep='|', 
+ies_agg_UF = pd.read_csv('./arquivos/dados_IES_agg_UF.csv', sep='|', 
                    low_memory=False)
 
 # renomear colunas para nomes mais intuitivos
