@@ -12,7 +12,6 @@ import streamlit as st
 # ------------------------------------------------------------------------
 # PARTE 01 - Evolução da Oferta de Curso
 # ------------------------------------------------------------------------
-
 st.set_page_config(page_title='Analise Cursos', 
                     page_icon=':books:', 
 				    layout='wide', 
@@ -37,7 +36,7 @@ sns.set(style="darkgrid")
 # ------------------------------------------------------------------------
 # Carrega dados Cursos
 # ------------------------------------------------------------------------
-st.cache_data
+@st.cache_data
 # carregar algumas colunas pois a carga do df é demorado
 # dados_cursos_2012_2022.csv alterado para dados_cursos_2012_2022_reduzida01.csv
 
@@ -345,24 +344,53 @@ distr_cursos['AREA_GERAL'] = distr_cursos['NO_CINE_AREA_GERAL'].apply(lambda x: 
 # ------------------------------------------------------------------------	
 l_anos = range(2012,2023,1)
 
-for ano in l_anos:
-	titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Treemap de Cursos e Matriculas para o ano de ' + str(ano) + '</b></p>'
-	st.markdown(titulo_plot01, unsafe_allow_html=True)
+## para exibir todos os TreeMaps - todos os anos
+# for ano in l_anos:
+	# titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Treemap de Cursos e Matriculas para o ano de ' + str(ano) + '</b></p>'
+	# st.markdown(titulo_plot01, unsafe_allow_html=True)
     
-	fig = px.treemap(distr_cursos[distr_cursos['NU_ANO_CENSO']==ano], 
-	path = [px.Constant('Area Geral'), 'AREA_GERAL'], 
-	values = 'QT_CURSO',  
-	color_continuous_scale='RdBu', 
-	color = 'QT_MAT', 
-	width=400, height=500)
+	# fig = px.treemap(distr_cursos[distr_cursos['NU_ANO_CENSO']==ano], 
+	# path = [px.Constant('Area Geral'), 'AREA_GERAL'], 
+	# values = 'QT_CURSO',  
+	# color_continuous_scale='RdBu', 
+	# color = 'QT_MAT', 
+	# width=400, height=500)
     
-	fig.update_layout(margin = dict(t=20, l=25, r=25, b=25))
-	fig.update_traces(textposition='middle left', textfont_size=18)
-	fig.update_traces(textposition='middle left', textfont_size=18)
+	# fig.update_layout(margin = dict(t=20, l=25, r=25, b=25))
+	# fig.update_traces(textposition='middle left', textfont_size=18)
+	# fig.update_traces(textposition='middle left', textfont_size=18)
 	
-	st.plotly_chart(fig, use_container_width=True)
+	# st.plotly_chart(fig, use_container_width=True)
+
+# para exibir conforme o ano selecionado
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    label01 = '<p style="font-family:Courier; color:#992600; font-size: 20px;"><b>Selecione um ano específico:</b></p>'
+    st.markdown(label01, unsafe_allow_html=True) 
+    
+with col2:
+    ano_selecionado = st.selectbox(label="Selecione um ano específico:", options=l_anos, label_visibility="collapsed")
+    
+with col3:    
+    st.subheader(':date:')
 
 
+if ano_selecionado:
+    titulo_plot01 =  f'<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Treemap de Cursos e Matriculas para o ano de {ano_selecionado}</b></p>'
+    st.markdown(titulo_plot01, unsafe_allow_html=True)
+    
+    fig = px.treemap(distr_cursos[distr_cursos['NU_ANO_CENSO']==ano_selecionado], 
+    path = [px.Constant('Area Geral'), 'AREA_GERAL'], 
+    values = 'QT_CURSO', color_continuous_scale='RdBu', color = 'QT_MAT', width=400, height=500)
+    
+    fig.update_layout(margin = dict(t=20, l=25, r=25, b=25))
+    fig.update_traces(textposition='middle left', textfont_size=18)
+    fig.update_traces(textposition='middle left', textfont_size=18)
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    
 
 # ------------------------------------------------------------------------
 # PARTE 03 - Analise Cursos - Ano Atual: 2022 
@@ -382,7 +410,7 @@ for ano in l_anos:
                    # layout='wide', 
                    # initial_sidebar_state='expanded')
 
-st.title(':books: Oferta de Cursos :flag-br:')
+st.title(':books: Oferta de Cursos :flag-br: :classical_building:')
 st.subheader('Escopo: Cursos Presenciais de Federais Públicas e Privadas')
 st.subheader("Dados de 2022")
 st.markdown("---")
@@ -414,7 +442,7 @@ colunas_CO = ['CO_REGIAO', 'CO_UF', 'CO_MUNICIPIO', 'CO_IES', 'CO_CURSO',
 dict_dtype = {column : 'str'  for column in colunas_CO}
 
 
-st.cache_data
+@st.cache_data
 def carrega_df():
 	cursos = pd.read_csv('./arquivos/dados_cursos_escopo_consolidado.csv', sep='|', 
                   dtype = dict_dtype, 
@@ -658,41 +686,46 @@ distr_cursos_reg_area_S = distr_cursos_reg_area[distr_cursos_reg_area['NO_REGIAO
 distr_cursos_reg_area_N = distr_cursos_reg_area[distr_cursos_reg_area['NO_REGIAO']=='Norte']
 distr_cursos_reg_area_CO = distr_cursos_reg_area[distr_cursos_reg_area['NO_REGIAO']=='Centro-Oeste']
 
-
+size=15
 fig_NE = px.bar(distr_cursos_reg_area_NE.sort_values(by='NO_CINE_AREA_GERAL', ascending=True),
              x='NO_REGIAO', y='Total_Cursos', color='AREA_GERAL2',
              color_discrete_sequence=px.colors.diverging.Spectral,
              barmode = 'group', width=1000, height=700)
 fig_NE.update_layout(yaxis=dict(title='Total Cursos', titlefont_size=20, tickfont_size=12),
-                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.9)) 
+                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.98, font = dict(size = size))) 
+fig_NE.update_layout(plot_bgcolor='#dbe0f0')
                   
 fig_SE = px.bar(distr_cursos_reg_area_SE.sort_values(by='NO_CINE_AREA_GERAL', ascending=True),
              x='NO_REGIAO', y='Total_Cursos', color='AREA_GERAL2',
              color_discrete_sequence=px.colors.diverging.Spectral, 
              barmode = 'group', width=1000, height=700)
 fig_SE.update_layout(yaxis=dict(title='Total Cursos', titlefont_size=20, tickfont_size=12),
-                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.9))     
+                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.98, font = dict(size = size)))     
+fig_SE.update_layout(plot_bgcolor='#dbe0f0')                  
                   
 fig_S = px.bar(distr_cursos_reg_area_S.sort_values(by='NO_CINE_AREA_GERAL', ascending=True),
              x='NO_REGIAO', y='Total_Cursos', color='AREA_GERAL2',
              color_discrete_sequence=px.colors.diverging.Spectral,
              barmode = 'group', width=1000, height=700)
 fig_S.update_layout(yaxis=dict(title='Total Cursos', titlefont_size=20, tickfont_size=12),
-                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.9)) 
+                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.98, font = dict(size = size))) 
+fig_S.update_layout(plot_bgcolor='#dbe0f0')
                   
 fig_N = px.bar(distr_cursos_reg_area_N.sort_values(by='NO_CINE_AREA_GERAL', ascending=True),
              x='NO_REGIAO', y='Total_Cursos', color='AREA_GERAL2',
              color_discrete_sequence=px.colors.diverging.Spectral,
              barmode = 'group', width=1000, height=700)
 fig_N.update_layout(yaxis=dict(title='Total Cursos', titlefont_size=20, tickfont_size=12),
-                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.9))    
+                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.98, font = dict(size = size)))    
+fig_N.update_layout(plot_bgcolor='#dbe0f0')
 
 fig_CO = px.bar(distr_cursos_reg_area_CO.sort_values(by='NO_CINE_AREA_GERAL', ascending=True),
              x='NO_REGIAO', y='Total_Cursos', color='AREA_GERAL2',
              color_discrete_sequence=px.colors.diverging.Spectral,
              barmode = 'group', width=1000, height=700)
 fig_CO.update_layout(yaxis=dict(title='Total Cursos', titlefont_size=20, tickfont_size=12),
-                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.9))
+                  xaxis=dict(title=''), legend=dict(x=0.03,y=0.98, font = dict(size = size)))
+fig_CO.update_layout(plot_bgcolor='#dbe0f0')                  
                   
                   
 # ------------------------------------------------------------------------
