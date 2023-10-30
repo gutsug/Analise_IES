@@ -48,7 +48,7 @@ with st.container():
    
 ###############################################################################################
     # Carrega o arquivo HTML
-    with open('.\data\ies_interativo.html', 'r', encoding='utf-8') as file:
+    with open('./data/ies_interativo.html', 'r', encoding='utf-8') as file:
         html_code = file.read()
 
     # Exibe o conteúdo HTML
