@@ -1,0 +1,138 @@
+SIGLA_UF|NOME_UF|REGIAO|NOME_REGIAO|Nome_Mesorregiao|Total_Pop_IBGE_2022|Total_Mun_IBGE_2022
+AC|Acre|N|Norte|Vale do Acre|583448|14
+AC|Acre|N|Norte|Vale do Juruá|246332|8
+AL|Alagoas|NE|Nordeste|Agreste Alagoano|634079|24
+AL|Alagoas|NE|Nordeste|Leste Alagoano|2069392|52
+AL|Alagoas|NE|Nordeste|Sertão Alagoano|421783|26
+AM|Amazonas|N|Norte|Centro Amazonense|3083375|30
+AM|Amazonas|N|Norte|Norte Amazonense|125431|6
+AM|Amazonas|N|Norte|Sudoeste Amazonense|403270|16
+AM|Amazonas|N|Norte|Sul Amazonense|340186|10
+AP|Amapá|N|Norte|Norte do Amapá|60649|5
+AP|Amapá|N|Norte|Sul do Amapá|713619|11
+BA|Bahia|NE|Nordeste|Centro Norte Baiano|2391739|80
+BA|Bahia|NE|Nordeste|Centro Sul Baiano|2586175|118
+BA|Bahia|NE|Nordeste|Extremo Oeste Baiano|674620|24
+BA|Bahia|NE|Nordeste|Metropolitana de Salvador|4321067|38
+BA|Bahia|NE|Nordeste|Nordeste Baiano|1580577|60
+BA|Bahia|NE|Nordeste|Sul Baiano|2043598|70
+BA|Bahia|NE|Nordeste|Vale São-Franciscano da Bahia|1061247|27
+CE|Ceará|NE|Nordeste|Centro-Sul Cearense|365846|14
+CE|Ceará|NE|Nordeste|Jaguaribe|546667|21
+CE|Ceará|NE|Nordeste|Metropolitana de Fortaleza|3761382|11
+CE|Ceará|NE|Nordeste|Noroeste Cearense|1426225|47
+CE|Ceará|NE|Nordeste|Norte Cearense|1071030|36
+CE|Ceará|NE|Nordeste|Sertões Cearenses|838795|30
+CE|Ceará|NE|Nordeste|Sul Cearense|926486|25
+DF|Distrito Federal|CO|Centro-Oeste|Distrito Federal|2923369|1
+ES|Espírito Santo|SE|Sudeste|Central Espírito-santense|2310242|24
+ES|Espírito Santo|SE|Sudeste|Litoral Norte Espírito-santense|617832|15
+ES|Espírito Santo|SE|Sudeste|Noroeste Espírito-santense|430213|17
+ES|Espírito Santo|SE|Sudeste|Sul Espírito-santense|616813|22
+GO|Goiás|CO|Centro-Oeste|Centro Goiano|3533946|82
+GO|Goiás|CO|Centro-Oeste|Leste Goiano|1405349|32
+GO|Goiás|CO|Centro-Oeste|Noroeste Goiano|228898|23
+GO|Goiás|CO|Centro-Oeste|Norte Goiano|297602|27
+GO|Goiás|CO|Centro-Oeste|Sul Goiano|1485181|82
+MA|Maranhão|NE|Nordeste|Centro Maranhense|908629|42
+MA|Maranhão|NE|Nordeste|Leste Maranhense|1346012|44
+MA|Maranhão|NE|Nordeste|Norte Maranhense|2819625|60
+MA|Maranhão|NE|Nordeste|Oeste Maranhense|1396316|52
+MA|Maranhão|NE|Nordeste|Sul Maranhense|330023|19
+MG|Minas Gerais|SE|Sudeste|Campo das Vertentes|571162|36
+MG|Minas Gerais|SE|Sudeste|Central Mineira|435238|30
+MG|Minas Gerais|SE|Sudeste|Jequitinhonha|660227|51
+MG|Minas Gerais|SE|Sudeste|Metropolitana de Belo Horizonte|6722224|105
+MG|Minas Gerais|SE|Sudeste|Noroeste de Minas|394967|19
+MG|Minas Gerais|SE|Sudeste|Norte de Minas|1657829|89
+MG|Minas Gerais|SE|Sudeste|Oeste de Minas|1077007|44
+MG|Minas Gerais|SE|Sudeste|Sul/Sudoeste de Minas|2600981|146
+MG|Minas Gerais|SE|Sudeste|Triângulo Mineiro/Alto Paranaíba|2454011|66
+MG|Minas Gerais|SE|Sudeste|Vale do Mucuri|368989|23
+MG|Minas Gerais|SE|Sudeste|Vale do Rio Doce|1555479|102
+MG|Minas Gerais|SE|Sudeste|Zona da Mata|2234546|142
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Centro Norte de Mato Grosso do Sul|1169120|16
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Leste de Mato Grosso do Sul|458457|18
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Pantanais Sul Mato-grossense|231956|7
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Sudoeste de Mato Grosso do Sul|974209|38
+MT|Mato Grosso|CO|Centro-Oeste|Centro-Sul Mato-grossense|1253628|17
+MT|Mato Grosso|CO|Centro-Oeste|Nordeste Mato-grossense|351732|25
+MT|Mato Grosso|CO|Centro-Oeste|Norte Mato-grossense|1262200|55
+MT|Mato Grosso|CO|Centro-Oeste|Sudeste Mato-grossense|573597|22
+MT|Mato Grosso|CO|Centro-Oeste|Sudoeste Mato-grossense|343082|22
+PA|Pará|N|Norte|Baixo Amazonas|905676|15
+PA|Pará|N|Norte|Marajó|601691|16
+PA|Pará|N|Norte|Metropolitana de Belém|2545576|11
+PA|Pará|N|Norte|Nordeste Paraense|1935248|49
+PA|Pará|N|Norte|Sudeste Paraense|1824903|39
+PA|Pará|N|Norte|Sudoeste Paraense|629868|14
+PB|Paraíba|NE|Nordeste|Agreste Paraibano|1248107|66
+PB|Paraíba|NE|Nordeste|Borborema|304797|44
+PB|Paraíba|NE|Nordeste|Mata Paraibana|1613680|30
+PB|Paraíba|NE|Nordeste|Sertão Paraibano|864377|83
+PE|Pernambuco|NE|Nordeste|Agreste Pernambucano|2326051|71
+PE|Pernambuco|NE|Nordeste|Mata Pernambucana|1257297|43
+PE|Pernambuco|NE|Nordeste|Metropolitana de Recife|3748029|15
+PE|Pernambuco|NE|Nordeste|Sertão Pernambucano|1045184|41
+PE|Pernambuco|NE|Nordeste|São Francisco Pernambucano|674552|15
+PI|Piauí|NE|Nordeste|Centro-Norte Piauiense|1531504|64
+PI|Piauí|NE|Nordeste|Norte Piauiense|675491|32
+PI|Piauí|NE|Nordeste|Sudeste Piauiense|527329|66
+PI|Piauí|NE|Nordeste|Sudoeste Piauiense|535850|62
+PR|Paraná|S|Sul|Centro Ocidental Paranaense|342594|25
+PR|Paraná|S|Sul|Centro Oriental Paranaense|795182|14
+PR|Paraná|S|Sul|Centro-Sul Paranaense|565720|29
+PR|Paraná|S|Sul|Metropolitana de Curitiba|4062858|37
+PR|Paraná|S|Sul|Noroeste Paranaense|730376|61
+PR|Paraná|S|Sul|Norte Central Paranaense|2388136|79
+PR|Paraná|S|Sul|Norte Pioneiro Paranaense|556579|46
+PR|Paraná|S|Sul|Oeste Paranaense|1416523|50
+PR|Paraná|S|Sul|Sudeste Paranaense|409401|21
+PR|Paraná|S|Sul|Sudoeste Paranaense|568010|37
+RJ|Rio de Janeiro|SE|Sudeste|Baixadas|846183|10
+RJ|Rio de Janeiro|SE|Sudeste|Centro Fluminense|510468|16
+RJ|Rio de Janeiro|SE|Sudeste|Metropolitana do Rio de Janeiro|12907297|30
+RJ|Rio de Janeiro|SE|Sudeste|Noroeste Fluminense|320409|13
+RJ|Rio de Janeiro|SE|Sudeste|Norte Fluminense|926136|9
+RJ|Rio de Janeiro|SE|Sudeste|Sul Fluminense|1105033|14
+RN|Rio Grande do Norte|NE|Nordeste|Agreste Potiguar|432052|43
+RN|Rio Grande do Norte|NE|Nordeste|Central Potiguar|382800|37
+RN|Rio Grande do Norte|NE|Nordeste|Leste Potiguar|1647164|25
+RN|Rio Grande do Norte|NE|Nordeste|Oeste Potiguar|841937|62
+RO|Rondônia|N|Norte|Leste Rondoniense|977463|42
+RO|Rondônia|N|Norte|Madeira-Guaporé|638916|10
+RR|Roraima|N|Norte|Norte de Roraima|531277|8
+RR|Roraima|N|Norte|Sul de Roraima|103528|7
+RS|Rio Grande do Sul|S|Sul|Centro Ocidental Rio-grandense|555160|31
+RS|Rio Grande do Sul|S|Sul|Centro Oriental Rio-grandense|815993|54
+RS|Rio Grande do Sul|S|Sul|Metropolitana de Porto Alegre|4953306|98
+RS|Rio Grande do Sul|S|Sul|Nordeste Rio-grandense|1189804|54
+RS|Rio Grande do Sul|S|Sul|Noroeste Rio-grandense|1997694|216
+RS|Rio Grande do Sul|S|Sul|Sudeste Rio-grandense|887802|25
+RS|Rio Grande do Sul|S|Sul|Sudoeste Rio-grandense|688306|19
+SC|Santa Catarina|S|Sul|Grande Florianópolis|1396591|21
+SC|Santa Catarina|S|Sul|Norte Catarinense|1458202|26
+SC|Santa Catarina|S|Sul|Oeste Catarinense|1352028|118
+SC|Santa Catarina|S|Sul|Serrana|424476|30
+SC|Santa Catarina|S|Sul|Sul Catarinense|1105723|46
+SC|Santa Catarina|S|Sul|Vale do Itajaí|2025134|54
+SE|Sergipe|NE|Nordeste|Agreste Sergipano|478459|18
+SE|Sergipe|NE|Nordeste|Leste Sergipano|1493953|42
+SE|Sergipe|NE|Nordeste|Sertão Sergipano|239456|15
+SP|São Paulo|SE|Sudeste|Araraquara|888311|21
+SP|São Paulo|SE|Sudeste|Araçatuba|749301|36
+SP|São Paulo|SE|Sudeste|Assis|572974|35
+SP|São Paulo|SE|Sudeste|Bauru|1558531|56
+SP|São Paulo|SE|Sudeste|Campinas|4280914|49
+SP|São Paulo|SE|Sudeste|Itapetininga|904671|36
+SP|São Paulo|SE|Sudeste|Litoral Sul Paulista|524054|17
+SP|São Paulo|SE|Sudeste|Macro Metropolitana Paulista|3252086|36
+SP|São Paulo|SE|Sudeste|Marília|461338|20
+SP|São Paulo|SE|Sudeste|Metropolitana de São Paulo|23543592|45
+SP|São Paulo|SE|Sudeste|Piracicaba|1550055|26
+SP|São Paulo|SE|Sudeste|Presidente Prudente|869958|54
+SP|São Paulo|SE|Sudeste|Ribeirão Preto|2579530|66
+SP|São Paulo|SE|Sudeste|São José do Rio Preto|1731765|109
+SP|São Paulo|SE|Sudeste|Vale do Paraíba Paulista|2557857|39
+TO|Tocantins|N|Norte|Ocidental do Tocantins|940623|93
+TO|Tocantins|N|Norte|Oriental do Tocantins|643683|46

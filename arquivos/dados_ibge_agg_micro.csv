@@ -1,0 +1,559 @@
+SIGLA_UF|NOME_UF|REGIAO|NOME_REGIAO|Nome_Microrregiao|Total_Pop_IBGE_2022|Total_Mun_IBGE_2022
+AC|Acre|N|Norte|Brasiléia|70821|4
+AC|Acre|N|Norte|Cruzeiro do Sul|157120|5
+AC|Acre|N|Norte|Rio Branco|452963|7
+AC|Acre|N|Norte|Sena Madureira|59664|3
+AC|Acre|N|Norte|Tarauacá|89212|3
+AL|Alagoas|NE|Nordeste|Alagoana do Sertão do São Francisco|82149|3
+AL|Alagoas|NE|Nordeste|Arapiraca|431914|10
+AL|Alagoas|NE|Nordeste|Batalha|88742|8
+AL|Alagoas|NE|Nordeste|Litoral Norte Alagoano|73801|5
+AL|Alagoas|NE|Nordeste|Maceió|1225966|10
+AL|Alagoas|NE|Nordeste|Mata Alagoana|265396|16
+AL|Alagoas|NE|Nordeste|Palmeira dos Índios|167883|11
+AL|Alagoas|NE|Nordeste|Penedo|119710|5
+AL|Alagoas|NE|Nordeste|Santana do Ipanema|169089|10
+AL|Alagoas|NE|Nordeste|Serrana do Sertão Alagoano|81803|5
+AL|Alagoas|NE|Nordeste|Serrana dos Quilombos|137572|7
+AL|Alagoas|NE|Nordeste|São Miguel dos Campos|246947|9
+AL|Alagoas|NE|Nordeste|Traipu|34282|3
+AM|Amazonas|N|Norte|Alto Solimões|264407|9
+AM|Amazonas|N|Norte|Boca do Acre|56315|2
+AM|Amazonas|N|Norte|Coari|156838|6
+AM|Amazonas|N|Norte|Itacoatiara|176686|5
+AM|Amazonas|N|Norte|Japurá|24987|2
+AM|Amazonas|N|Norte|Juruá|138863|7
+AM|Amazonas|N|Norte|Madeira|197592|5
+AM|Amazonas|N|Norte|Manaus|2326673|7
+AM|Amazonas|N|Norte|Parintins|262954|7
+AM|Amazonas|N|Norte|Purus|86279|3
+AM|Amazonas|N|Norte|Rio Negro|100444|4
+AM|Amazonas|N|Norte|Rio Preto da Eva|55569|2
+AM|Amazonas|N|Norte|Tefé|104655|3
+AP|Amapá|N|Norte|Amapá|22258|3
+AP|Amapá|N|Norte|Macapá|645029|8
+AP|Amapá|N|Norte|Mazagão|68590|3
+AP|Amapá|N|Norte|Oiapoque|38391|2
+BA|Bahia|NE|Nordeste|Alagoinhas|315764|9
+BA|Bahia|NE|Nordeste|Barra|175444|7
+BA|Bahia|NE|Nordeste|Barreiras|375049|7
+BA|Bahia|NE|Nordeste|Bom Jesus da Lapa|185152|6
+BA|Bahia|NE|Nordeste|Boquira|185497|11
+BA|Bahia|NE|Nordeste|Brumado|235113|14
+BA|Bahia|NE|Nordeste|Catu|210545|7
+BA|Bahia|NE|Nordeste|Cotegipe|118195|8
+BA|Bahia|NE|Nordeste|Entre Rios|114834|5
+BA|Bahia|NE|Nordeste|Euclides da Cunha|312922|9
+BA|Bahia|NE|Nordeste|Feira de Santana|1118762|24
+BA|Bahia|NE|Nordeste|Guanambi|389701|18
+BA|Bahia|NE|Nordeste|Ilhéus-Itabuna|978502|41
+BA|Bahia|NE|Nordeste|Irecê|398162|19
+BA|Bahia|NE|Nordeste|Itaberaba|244055|12
+BA|Bahia|NE|Nordeste|Itapetinga|201913|9
+BA|Bahia|NE|Nordeste|Jacobina|341041|16
+BA|Bahia|NE|Nordeste|Jequié|503626|26
+BA|Bahia|NE|Nordeste|Jeremoabo|98332|5
+BA|Bahia|NE|Nordeste|Juazeiro|518285|8
+BA|Bahia|NE|Nordeste|Livramento do Brumado|96347|5
+BA|Bahia|NE|Nordeste|Paulo Afonso|182366|6
+BA|Bahia|NE|Nordeste|Porto Seguro|793125|19
+BA|Bahia|NE|Nordeste|Ribeira do Pombal|303487|14
+BA|Bahia|NE|Nordeste|Salvador|3556261|10
+BA|Bahia|NE|Nordeste|Santa Maria da Vitória|181376|9
+BA|Bahia|NE|Nordeste|Santo Antônio de Jesus|554261|21
+BA|Bahia|NE|Nordeste|Seabra|273636|18
+BA|Bahia|NE|Nordeste|Senhor do Bonfim|289719|9
+BA|Bahia|NE|Nordeste|Serrinha|435238|18
+BA|Bahia|NE|Nordeste|Valença|271971|10
+BA|Bahia|NE|Nordeste|Vitória da Conquista|700342|17
+CE|Ceará|NE|Nordeste|Baixo Curu|132450|3
+CE|Ceará|NE|Nordeste|Baixo Jaguaribe|315692|10
+CE|Ceará|NE|Nordeste|Barro|87851|3
+CE|Ceará|NE|Nordeste|Baturité|179716|11
+CE|Ceará|NE|Nordeste|Brejo Santo|103125|5
+CE|Ceará|NE|Nordeste|Canindé|120680|4
+CE|Ceará|NE|Nordeste|Cariri|586525|8
+CE|Ceará|NE|Nordeste|Caririaçu|56087|4
+CE|Ceará|NE|Nordeste|Cascavel|147553|3
+CE|Ceará|NE|Nordeste|Chapada do Araripe|92898|5
+CE|Ceará|NE|Nordeste|Chorozinho|67069|3
+CE|Ceará|NE|Nordeste|Coreaú|58519|4
+CE|Ceará|NE|Nordeste|Fortaleza|3624215|9
+CE|Ceará|NE|Nordeste|Ibiapaba|322293|8
+CE|Ceará|NE|Nordeste|Iguatu|217645|5
+CE|Ceará|NE|Nordeste|Ipu|136887|6
+CE|Ceará|NE|Nordeste|Itapipoca|238319|3
+CE|Ceará|NE|Nordeste|Lavras da Mangabeira|55468|4
+CE|Ceará|NE|Nordeste|Litoral de Aracati|128716|4
+CE|Ceará|NE|Nordeste|Litoral de Camocim e Acaraú|397855|12
+CE|Ceará|NE|Nordeste|Meruoca|26523|2
+CE|Ceará|NE|Nordeste|Médio Curu|85566|5
+CE|Ceará|NE|Nordeste|Médio Jaguaribe|60544|3
+CE|Ceará|NE|Nordeste|Pacajus|137167|2
+CE|Ceará|NE|Nordeste|Santa Quitéria|68518|3
+CE|Ceará|NE|Nordeste|Serra do Pereiro|41715|4
+CE|Ceará|NE|Nordeste|Sertão de Cratéus|241803|9
+CE|Ceará|NE|Nordeste|Sertão de Inhamuns|131822|6
+CE|Ceará|NE|Nordeste|Sertão de Quixeramobim|263331|7
+CE|Ceará|NE|Nordeste|Sertão de Senador Pompeu|201839|8
+CE|Ceará|NE|Nordeste|Sobral|415630|12
+CE|Ceará|NE|Nordeste|Uruburetama|99677|4
+CE|Ceará|NE|Nordeste|Várzea Alegre|92733|5
+DF|Distrito Federal|CO|Centro-Oeste|Brasília|2923369|1
+ES|Espírito Santo|SE|Sudeste|Afonso Cláudio|146318|7
+ES|Espírito Santo|SE|Sudeste|Alegre|161071|9
+ES|Espírito Santo|SE|Sudeste|Barra de São Francisco|87045|4
+ES|Espírito Santo|SE|Sudeste|Cachoeiro de Itapemirim|349025|10
+ES|Espírito Santo|SE|Sudeste|Colatina|214248|7
+ES|Espírito Santo|SE|Sudeste|Guarapari|220027|6
+ES|Espírito Santo|SE|Sudeste|Itapemirim|106717|3
+ES|Espírito Santo|SE|Sudeste|Linhares|362767|7
+ES|Espírito Santo|SE|Sudeste|Montanha|54478|4
+ES|Espírito Santo|SE|Sudeste|Nova Venécia|128920|6
+ES|Espírito Santo|SE|Sudeste|Santa Teresa|125522|6
+ES|Espírito Santo|SE|Sudeste|São Mateus|200587|4
+ES|Espírito Santo|SE|Sudeste|Vitória|1818375|5
+GO|Goiás|CO|Centro-Oeste|Anicuns|111837|13
+GO|Goiás|CO|Centro-Oeste|Anápolis|620670|20
+GO|Goiás|CO|Centro-Oeste|Aragarças|55211|7
+GO|Goiás|CO|Centro-Oeste|Catalão|174256|11
+GO|Goiás|CO|Centro-Oeste|Ceres|256193|22
+GO|Goiás|CO|Centro-Oeste|Chapada dos Veadeiros|67418|8
+GO|Goiás|CO|Centro-Oeste|Entorno de Brasília|1297525|20
+GO|Goiás|CO|Centro-Oeste|Goiânia|2483854|17
+GO|Goiás|CO|Centro-Oeste|Iporá|61392|10
+GO|Goiás|CO|Centro-Oeste|Meia Ponte|426767|21
+GO|Goiás|CO|Centro-Oeste|Pires do Rio|105481|10
+GO|Goiás|CO|Centro-Oeste|Porangatu|230184|19
+GO|Goiás|CO|Centro-Oeste|Quirinópolis|123385|9
+GO|Goiás|CO|Centro-Oeste|Rio Vermelho|88268|9
+GO|Goiás|CO|Centro-Oeste|Sudoeste de Goiás|526961|18
+GO|Goiás|CO|Centro-Oeste|São Miguel do Araguaia|85419|7
+GO|Goiás|CO|Centro-Oeste|Vale do Rio dos Bois|128331|13
+GO|Goiás|CO|Centro-Oeste|Vão do Paranã|107824|12
+MA|Maranhão|NE|Nordeste|Aglomeração Urbana de São Luís|1508450|4
+MA|Maranhão|NE|Nordeste|Alto Mearim e Grajaú|316519|11
+MA|Maranhão|NE|Nordeste|Baixada Maranhense|571530|21
+MA|Maranhão|NE|Nordeste|Baixo Parnaíba Maranhense|125887|6
+MA|Maranhão|NE|Nordeste|Caxias|430321|6
+MA|Maranhão|NE|Nordeste|Chapadas das Mangabeiras|71161|8
+MA|Maranhão|NE|Nordeste|Chapadas do Alto Itapecuru|211972|13
+MA|Maranhão|NE|Nordeste|Chapadinha|244276|9
+MA|Maranhão|NE|Nordeste|Codó|253287|6
+MA|Maranhão|NE|Nordeste|Coelho Neto|80269|4
+MA|Maranhão|NE|Nordeste|Gerais de Balsas|150425|5
+MA|Maranhão|NE|Nordeste|Gurupi|236743|14
+MA|Maranhão|NE|Nordeste|Imperatriz|596441|16
+MA|Maranhão|NE|Nordeste|Itapecuru Mirim|206562|8
+MA|Maranhão|NE|Nordeste|Lençóis Maranhenses|191656|6
+MA|Maranhão|NE|Nordeste|Litoral Ocidental Maranhense|176345|13
+MA|Maranhão|NE|Nordeste|Médio Mearim|401204|20
+MA|Maranhão|NE|Nordeste|Pindaré|563132|22
+MA|Maranhão|NE|Nordeste|Porto Franco|108437|6
+MA|Maranhão|NE|Nordeste|Presidente Dutra|190906|11
+MA|Maranhão|NE|Nordeste|Rosário|165082|8
+MG|Minas Gerais|SE|Sudeste|Aimorés|146293|13
+MG|Minas Gerais|SE|Sudeste|Alfenas|231284|12
+MG|Minas Gerais|SE|Sudeste|Almenara|172472|16
+MG|Minas Gerais|SE|Sudeste|Andrelândia|73623|13
+MG|Minas Gerais|SE|Sudeste|Araxá|240495|10
+MG|Minas Gerais|SE|Sudeste|Araçuaí|140865|8
+MG|Minas Gerais|SE|Sudeste|Barbacena|218739|12
+MG|Minas Gerais|SE|Sudeste|Belo Horizonte|5128101|24
+MG|Minas Gerais|SE|Sudeste|Bocaiúva|71325|5
+MG|Minas Gerais|SE|Sudeste|Bom Despacho|182160|12
+MG|Minas Gerais|SE|Sudeste|Campo Belo|113696|7
+MG|Minas Gerais|SE|Sudeste|Capelinha|184479|14
+MG|Minas Gerais|SE|Sudeste|Caratinga|254573|20
+MG|Minas Gerais|SE|Sudeste|Cataguases|207783|14
+MG|Minas Gerais|SE|Sudeste|Conceição do Mato Dentro|88942|13
+MG|Minas Gerais|SE|Sudeste|Conselheiro Lafaiete|276573|12
+MG|Minas Gerais|SE|Sudeste|Curvelo|155158|11
+MG|Minas Gerais|SE|Sudeste|Diamantina|84034|8
+MG|Minas Gerais|SE|Sudeste|Divinópolis|591071|11
+MG|Minas Gerais|SE|Sudeste|Formiga|159791|8
+MG|Minas Gerais|SE|Sudeste|Frutal|194051|12
+MG|Minas Gerais|SE|Sudeste|Governador Valadares|403848|25
+MG|Minas Gerais|SE|Sudeste|Grão Mogol|36349|6
+MG|Minas Gerais|SE|Sudeste|Guanhães|122650|15
+MG|Minas Gerais|SE|Sudeste|Ipatinga|493266|13
+MG|Minas Gerais|SE|Sudeste|Itabira|384590|18
+MG|Minas Gerais|SE|Sudeste|Itaguara|74725|9
+MG|Minas Gerais|SE|Sudeste|Itajubá|191645|13
+MG|Minas Gerais|SE|Sudeste|Ituiutaba|143504|6
+MG|Minas Gerais|SE|Sudeste|Janaúba|247195|13
+MG|Minas Gerais|SE|Sudeste|Januária|272426|16
+MG|Minas Gerais|SE|Sudeste|Juiz de Fora|769237|33
+MG|Minas Gerais|SE|Sudeste|Lavras|156658|9
+MG|Minas Gerais|SE|Sudeste|Manhuaçu|293366|20
+MG|Minas Gerais|SE|Sudeste|Mantena|59730|7
+MG|Minas Gerais|SE|Sudeste|Montes Claros|667674|22
+MG|Minas Gerais|SE|Sudeste|Muriaé|279802|20
+MG|Minas Gerais|SE|Sudeste|Nanuque|107271|10
+MG|Minas Gerais|SE|Sudeste|Oliveira|128108|9
+MG|Minas Gerais|SE|Sudeste|Ouro Preto|203051|4
+MG|Minas Gerais|SE|Sudeste|Paracatu|233856|10
+MG|Minas Gerais|SE|Sudeste|Pará de Minas|139576|5
+MG|Minas Gerais|SE|Sudeste|Passos|231393|14
+MG|Minas Gerais|SE|Sudeste|Patos de Minas|289677|10
+MG|Minas Gerais|SE|Sudeste|Patrocínio|212140|11
+MG|Minas Gerais|SE|Sudeste|Pedra Azul|78377|5
+MG|Minas Gerais|SE|Sudeste|Peçanha|75119|9
+MG|Minas Gerais|SE|Sudeste|Pirapora|157094|10
+MG|Minas Gerais|SE|Sudeste|Piuí|84341|9
+MG|Minas Gerais|SE|Sudeste|Ponte Nova|185028|18
+MG|Minas Gerais|SE|Sudeste|Pouso Alegre|406164|20
+MG|Minas Gerais|SE|Sudeste|Poços de Caldas|374096|13
+MG|Minas Gerais|SE|Sudeste|Salinas|205766|17
+MG|Minas Gerais|SE|Sudeste|Santa Rita do Sapucaí|145636|15
+MG|Minas Gerais|SE|Sudeste|Sete Lagoas|426666|20
+MG|Minas Gerais|SE|Sudeste|São João Del Rei|195765|15
+MG|Minas Gerais|SE|Sudeste|São Lourenço|212232|16
+MG|Minas Gerais|SE|Sudeste|São Sebastião do Paraíso|275117|14
+MG|Minas Gerais|SE|Sudeste|Teófilo Otoni|261718|13
+MG|Minas Gerais|SE|Sudeste|Três Marias|97920|7
+MG|Minas Gerais|SE|Sudeste|Uberaba|415599|7
+MG|Minas Gerais|SE|Sudeste|Uberlândia|958545|10
+MG|Minas Gerais|SE|Sudeste|Ubá|269848|17
+MG|Minas Gerais|SE|Sudeste|Unaí|161111|9
+MG|Minas Gerais|SE|Sudeste|Varginha|459791|16
+MG|Minas Gerais|SE|Sudeste|Viçosa|229482|20
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Alto Taquari|125763|8
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Aquidauana|103462|4
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Baixo Pantanal|128494|3
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Bodoquena|114385|7
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Campo Grande|1043357|8
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Cassilândia|82995|4
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Dourados|616389|15
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Iguatemi|243435|16
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Nova Andradina|98728|5
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Paranaíba|84999|4
+MS|Mato Grosso do Sul|CO|Centro-Oeste|Três Lagoas|191735|5
+MT|Mato Grosso|CO|Centro-Oeste|Alta Floresta|110473|6
+MT|Mato Grosso|CO|Centro-Oeste|Alto Araguaia|37873|3
+MT|Mato Grosso|CO|Centro-Oeste|Alto Guaporé|85358|5
+MT|Mato Grosso|CO|Centro-Oeste|Alto Pantanal|135044|4
+MT|Mato Grosso|CO|Centro-Oeste|Alto Paraguai|33834|5
+MT|Mato Grosso|CO|Centro-Oeste|Alto Teles Pires|323157|9
+MT|Mato Grosso|CO|Centro-Oeste|Arinos|80125|6
+MT|Mato Grosso|CO|Centro-Oeste|Aripuanã|153932|8
+MT|Mato Grosso|CO|Centro-Oeste|Canarana|143335|8
+MT|Mato Grosso|CO|Centro-Oeste|Colíder|159650|8
+MT|Mato Grosso|CO|Centro-Oeste|Cuiabá|1055877|5
+MT|Mato Grosso|CO|Centro-Oeste|Jauru|102996|12
+MT|Mato Grosso|CO|Centro-Oeste|Médio Araguaia|78995|3
+MT|Mato Grosso|CO|Centro-Oeste|Norte Araguaia|129402|14
+MT|Mato Grosso|CO|Centro-Oeste|Paranatinga|41649|4
+MT|Mato Grosso|CO|Centro-Oeste|Parecis|124631|5
+MT|Mato Grosso|CO|Centro-Oeste|Primavera do Leste|140004|2
+MT|Mato Grosso|CO|Centro-Oeste|Rondonópolis|337460|8
+MT|Mato Grosso|CO|Centro-Oeste|Rosário Oeste|28873|3
+MT|Mato Grosso|CO|Centro-Oeste|Sinop|268583|9
+MT|Mato Grosso|CO|Centro-Oeste|Tangará da Serra|154728|5
+MT|Mato Grosso|CO|Centro-Oeste|Tesouro|58260|9
+PA|Pará|N|Norte|Almeirim|79552|2
+PA|Pará|N|Norte|Altamira|355078|8
+PA|Pará|N|Norte|Arari|184314|7
+PA|Pará|N|Norte|Belém|2210945|6
+PA|Pará|N|Norte|Bragantina|401397|13
+PA|Pará|N|Norte|Cametá|501757|7
+PA|Pará|N|Norte|Castanhal|334631|5
+PA|Pará|N|Norte|Conceição do Araguaia|124826|4
+PA|Pará|N|Norte|Furos de Breves|256109|5
+PA|Pará|N|Norte|Guamá|434996|13
+PA|Pará|N|Norte|Itaituba|274790|6
+PA|Pará|N|Norte|Marabá|319400|5
+PA|Pará|N|Norte|Paragominas|299507|7
+PA|Pará|N|Norte|Parauapebas|413875|5
+PA|Pará|N|Norte|Portel|161268|4
+PA|Pará|N|Norte|Redenção|214423|7
+PA|Pará|N|Norte|Salgado|265336|11
+PA|Pará|N|Norte|Santarém|606494|8
+PA|Pará|N|Norte|São Félix do Xingu|158670|5
+PA|Pará|N|Norte|Tomé-Açu|331762|5
+PA|Pará|N|Norte|Tucuruí|294202|6
+PA|Pará|N|Norte|Óbidos|219630|5
+PB|Paraíba|NE|Nordeste|Brejo Paraibano|113312|8
+PB|Paraíba|NE|Nordeste|Cajazeiras|172116|15
+PB|Paraíba|NE|Nordeste|Campina Grande|546204|8
+PB|Paraíba|NE|Nordeste|Cariri Ocidental|124199|17
+PB|Paraíba|NE|Nordeste|Cariri Oriental|66284|12
+PB|Paraíba|NE|Nordeste|Catolé do Rocha|117974|11
+PB|Paraíba|NE|Nordeste|Curimataú Ocidental|117679|11
+PB|Paraíba|NE|Nordeste|Curimataú Oriental|88112|7
+PB|Paraíba|NE|Nordeste|Esperança|55244|4
+PB|Paraíba|NE|Nordeste|Guarabira|165002|14
+PB|Paraíba|NE|Nordeste|Itabaiana|109934|9
+PB|Paraíba|NE|Nordeste|Itaporanga|81152|11
+PB|Paraíba|NE|Nordeste|João Pessoa|1229027|6
+PB|Paraíba|NE|Nordeste|Litoral Norte|156668|11
+PB|Paraíba|NE|Nordeste|Litoral Sul|90243|4
+PB|Paraíba|NE|Nordeste|Patos|128003|9
+PB|Paraíba|NE|Nordeste|Piancó|67743|9
+PB|Paraíba|NE|Nordeste|Sapé|137742|9
+PB|Paraíba|NE|Nordeste|Seridó Ocidental Paraibano|39380|6
+PB|Paraíba|NE|Nordeste|Seridó Oriental Paraibano|74934|9
+PB|Paraíba|NE|Nordeste|Serra do Teixeira|113713|11
+PB|Paraíba|NE|Nordeste|Sousa|183676|17
+PB|Paraíba|NE|Nordeste|Umbuzeiro|52620|5
+PE|Pernambuco|NE|Nordeste|Alto Capibaribe|295027|9
+PE|Pernambuco|NE|Nordeste|Araripina|318941|10
+PE|Pernambuco|NE|Nordeste|Brejo Pernambucano|210170|11
+PE|Pernambuco|NE|Nordeste|Fernando de Noronha|2947|1
+PE|Pernambuco|NE|Nordeste|Garanhuns|457164|19
+PE|Pernambuco|NE|Nordeste|Itamaracá|185039|4
+PE|Pernambuco|NE|Nordeste|Itaparica|136521|7
+PE|Pernambuco|NE|Nordeste|Mata Meridional Pernambucana|492663|21
+PE|Pernambuco|NE|Nordeste|Mata Setentrional Pernambucana|537949|17
+PE|Pernambuco|NE|Nordeste|Médio Capibaribe|240543|10
+PE|Pernambuco|NE|Nordeste|Pajeú|327373|17
+PE|Pernambuco|NE|Nordeste|Petrolina|538031|8
+PE|Pernambuco|NE|Nordeste|Recife|3258197|8
+PE|Pernambuco|NE|Nordeste|Salgueiro|166850|7
+PE|Pernambuco|NE|Nordeste|Sertão do Moxotó|232020|7
+PE|Pernambuco|NE|Nordeste|Suape|301846|2
+PE|Pernambuco|NE|Nordeste|Vale do Ipanema|193745|6
+PE|Pernambuco|NE|Nordeste|Vale do Ipojuca|929402|16
+PE|Pernambuco|NE|Nordeste|Vitória de Santo Antão|226685|5
+PI|Piauí|NE|Nordeste|Alto Médio Canindé|264158|39
+PI|Piauí|NE|Nordeste|Alto Médio Gurguéia|96051|11
+PI|Piauí|NE|Nordeste|Alto Parnaíba Piauiense|50687|4
+PI|Piauí|NE|Nordeste|Baixo Parnaíba Piauiense|344632|18
+PI|Piauí|NE|Nordeste|Bertolínia|41293|9
+PI|Piauí|NE|Nordeste|Campo Maior|220979|19
+PI|Piauí|NE|Nordeste|Chapadas do Extremo Sul Piauiense|83115|9
+PI|Piauí|NE|Nordeste|Floriano|122663|12
+PI|Piauí|NE|Nordeste|Litoral Piauiense|330859|14
+PI|Piauí|NE|Nordeste|Médio Parnaíba Piauiense|130643|17
+PI|Piauí|NE|Nordeste|Picos|206548|20
+PI|Piauí|NE|Nordeste|Pio IX|56623|7
+PI|Piauí|NE|Nordeste|São Raimundo Nonato|142041|17
+PI|Piauí|NE|Nordeste|Teresina|1077531|14
+PI|Piauí|NE|Nordeste|Valença do Piauí|102351|14
+PR|Paraná|S|Sul|Apucarana|329042|9
+PR|Paraná|S|Sul|Assaí|69730|8
+PR|Paraná|S|Sul|Astorga|202803|22
+PR|Paraná|S|Sul|Campo Mourão|227253|14
+PR|Paraná|S|Sul|Capanema|99701|8
+PR|Paraná|S|Sul|Cascavel|504387|18
+PR|Paraná|S|Sul|Cerro Azul|30917|3
+PR|Paraná|S|Sul|Cianorte|159313|11
+PR|Paraná|S|Sul|Cornélio Procópio|167604|14
+PR|Paraná|S|Sul|Curitiba|3566044|19
+PR|Paraná|S|Sul|Faxinal|46811|7
+PR|Paraná|S|Sul|Floraí|42281|7
+PR|Paraná|S|Sul|Foz do Iguaçu|465855|11
+PR|Paraná|S|Sul|Francisco Beltrão|271736|19
+PR|Paraná|S|Sul|Goioerê|115341|11
+PR|Paraná|S|Sul|Guarapuava|403080|18
+PR|Paraná|S|Sul|Ibaiti|80037|8
+PR|Paraná|S|Sul|Irati|101187|4
+PR|Paraná|S|Sul|Ivaiporã|134312|15
+PR|Paraná|S|Sul|Jacarezinho|128398|6
+PR|Paraná|S|Sul|Jaguariaíva|101694|4
+PR|Paraná|S|Sul|Lapa|51163|2
+PR|Paraná|S|Sul|Londrina|836737|6
+PR|Paraná|S|Sul|Maringá|714057|5
+PR|Paraná|S|Sul|Palmas|90855|5
+PR|Paraná|S|Sul|Paranaguá|315144|7
+PR|Paraná|S|Sul|Paranavaí|281198|29
+PR|Paraná|S|Sul|Pato Branco|196573|10
+PR|Paraná|S|Sul|Pitanga|71785|6
+PR|Paraná|S|Sul|Ponta Grossa|527380|4
+PR|Paraná|S|Sul|Porecatu|82093|8
+PR|Paraná|S|Sul|Prudentópolis|130369|7
+PR|Paraná|S|Sul|Rio Negro|99590|6
+PR|Paraná|S|Sul|São Mateus do Sul|64558|3
+PR|Paraná|S|Sul|Telêmaco Borba|166108|6
+PR|Paraná|S|Sul|Toledo|446281|21
+PR|Paraná|S|Sul|Umuarama|289865|21
+PR|Paraná|S|Sul|União da Vitória|113287|7
+PR|Paraná|S|Sul|Wenceslau Braz|110810|10
+RJ|Rio de Janeiro|SE|Sudeste|Bacia de São João|216641|3
+RJ|Rio de Janeiro|SE|Sudeste|Barra do Piraí|172676|3
+RJ|Rio de Janeiro|SE|Sudeste|Baía da Ilha Grande|231820|2
+RJ|Rio de Janeiro|SE|Sudeste|Campos dos Goytacazes|607521|5
+RJ|Rio de Janeiro|SE|Sudeste|Cantagalo-Cordeiro|62881|4
+RJ|Rio de Janeiro|SE|Sudeste|Itaguaí|257179|3
+RJ|Rio de Janeiro|SE|Sudeste|Itaperuna|197698|7
+RJ|Rio de Janeiro|SE|Sudeste|Lagos|629542|7
+RJ|Rio de Janeiro|SE|Sudeste|Macacu-Caceribu|108955|2
+RJ|Rio de Janeiro|SE|Sudeste|Macaé|318615|4
+RJ|Rio de Janeiro|SE|Sudeste|Nova Friburgo|262179|4
+RJ|Rio de Janeiro|SE|Sudeste|Rio de Janeiro|11861043|16
+RJ|Rio de Janeiro|SE|Sudeste|Santa Maria Madalena|27714|3
+RJ|Rio de Janeiro|SE|Sudeste|Santo Antônio de Pádua|122711|6
+RJ|Rio de Janeiro|SE|Sudeste|Serrana|515919|3
+RJ|Rio de Janeiro|SE|Sudeste|Três Rios|157694|5
+RJ|Rio de Janeiro|SE|Sudeste|Vale do Paraíba Fluminense|700537|9
+RJ|Rio de Janeiro|SE|Sudeste|Vassouras|164201|6
+RN|Rio Grande do Norte|NE|Nordeste|Agreste Potiguar|234735|22
+RN|Rio Grande do Norte|NE|Nordeste|Angicos|49683|8
+RN|Rio Grande do Norte|NE|Nordeste|Baixa Verde|61742|5
+RN|Rio Grande do Norte|NE|Nordeste|Borborema Potiguar|135575|16
+RN|Rio Grande do Norte|NE|Nordeste|Chapada do Apodi|73780|4
+RN|Rio Grande do Norte|NE|Nordeste|Litoral Nordeste|88195|7
+RN|Rio Grande do Norte|NE|Nordeste|Litoral Sul|138938|10
+RN|Rio Grande do Norte|NE|Nordeste|Macau|54346|5
+RN|Rio Grande do Norte|NE|Nordeste|Macaíba|353768|5
+RN|Rio Grande do Norte|NE|Nordeste|Mossoró|343447|6
+RN|Rio Grande do Norte|NE|Nordeste|Médio Oeste|39750|6
+RN|Rio Grande do Norte|NE|Nordeste|Natal|1066263|3
+RN|Rio Grande do Norte|NE|Nordeste|Pau dos Ferros|116269|17
+RN|Rio Grande do Norte|NE|Nordeste|Seridó Ocidental|96529|7
+RN|Rio Grande do Norte|NE|Nordeste|Seridó Oriental|118485|10
+RN|Rio Grande do Norte|NE|Nordeste|Serra de Santana|63757|7
+RN|Rio Grande do Norte|NE|Nordeste|Serra de São Miguel|63902|9
+RN|Rio Grande do Norte|NE|Nordeste|Umarizal|61591|11
+RN|Rio Grande do Norte|NE|Nordeste|Vale do Açu|143198|9
+RO|Rondônia|N|Norte|Alvorada D'Oeste|63242|4
+RO|Rondônia|N|Norte|Ariquemes|176067|7
+RO|Rondônia|N|Norte|Cacoal|238441|9
+RO|Rondônia|N|Norte|Colorado do Oeste|45774|5
+RO|Rondônia|N|Norte|Guajará-Mirim|68331|3
+RO|Rondônia|N|Norte|Ji-Paraná|299242|11
+RO|Rondônia|N|Norte|Porto Velho|570585|7
+RO|Rondônia|N|Norte|Vilhena|154697|6
+RR|Roraima|N|Norte|Boa Vista|468050|4
+RR|Roraima|N|Norte|Caracaraí|48838|3
+RR|Roraima|N|Norte|Nordeste de Roraima|63227|4
+RR|Roraima|N|Norte|Sudeste de Roraima|54690|4
+RS|Rio Grande do Sul|S|Sul|Cachoeira do Sul|144311|7
+RS|Rio Grande do Sul|S|Sul|Camaquã|124096|8
+RS|Rio Grande do Sul|S|Sul|Campanha Central|180963|4
+RS|Rio Grande do Sul|S|Sul|Campanha Meridional|167197|5
+RS|Rio Grande do Sul|S|Sul|Campanha Ocidental|340146|10
+RS|Rio Grande do Sul|S|Sul|Carazinho|161061|18
+RS|Rio Grande do Sul|S|Sul|Caxias do Sul|892185|19
+RS|Rio Grande do Sul|S|Sul|Cerro Largo|63654|11
+RS|Rio Grande do Sul|S|Sul|Cruz Alta|144183|14
+RS|Rio Grande do Sul|S|Sul|Erechim|215621|30
+RS|Rio Grande do Sul|S|Sul|Frederico Westphalen|177972|27
+RS|Rio Grande do Sul|S|Sul|Gramado-Canela|345084|15
+RS|Rio Grande do Sul|S|Sul|Guaporé|135138|21
+RS|Rio Grande do Sul|S|Sul|Ijuí|191392|15
+RS|Rio Grande do Sul|S|Sul|Jaguarão|50403|3
+RS|Rio Grande do Sul|S|Sul|Lajeado-Estrela|340718|31
+RS|Rio Grande do Sul|S|Sul|Litoral Lagunar|254601|4
+RS|Rio Grande do Sul|S|Sul|Montenegro|234909|21
+RS|Rio Grande do Sul|S|Sul|Não-Me-Toque|44590|7
+RS|Rio Grande do Sul|S|Sul|Osório|424764|23
+RS|Rio Grande do Sul|S|Sul|Passo Fundo|375762|26
+RS|Rio Grande do Sul|S|Sul|Pelotas|474242|10
+RS|Rio Grande do Sul|S|Sul|Porto Alegre|3678619|22
+RS|Rio Grande do Sul|S|Sul|Restinga Seca|60032|9
+RS|Rio Grande do Sul|S|Sul|Sananduva|60877|11
+RS|Rio Grande do Sul|S|Sul|Santa Cruz do Sul|330964|16
+RS|Rio Grande do Sul|S|Sul|Santa Maria|389854|13
+RS|Rio Grande do Sul|S|Sul|Santa Rosa|164544|13
+RS|Rio Grande do Sul|S|Sul|Santiago|105274|9
+RS|Rio Grande do Sul|S|Sul|Santo Ângelo|191140|16
+RS|Rio Grande do Sul|S|Sul|Serras de Sudeste|108556|8
+RS|Rio Grande do Sul|S|Sul|Soledade|66750|8
+RS|Rio Grande do Sul|S|Sul|São Jerônimo|145834|9
+RS|Rio Grande do Sul|S|Sul|Três Passos|140148|20
+RS|Rio Grande do Sul|S|Sul|Vacaria|162481|14
+SC|Santa Catarina|S|Sul|Araranguá|220654|15
+SC|Santa Catarina|S|Sul|Blumenau|830558|15
+SC|Santa Catarina|S|Sul|Campos de Lages|295042|18
+SC|Santa Catarina|S|Sul|Canoinhas|250183|12
+SC|Santa Catarina|S|Sul|Chapecó|495166|38
+SC|Santa Catarina|S|Sul|Concórdia|159061|15
+SC|Santa Catarina|S|Sul|Criciúma|445192|11
+SC|Santa Catarina|S|Sul|Curitibanos|129434|12
+SC|Santa Catarina|S|Sul|Florianópolis|1248750|9
+SC|Santa Catarina|S|Sul|Itajaí|892429|12
+SC|Santa Catarina|S|Sul|Ituporanga|62737|7
+SC|Santa Catarina|S|Sul|Joaçaba|346100|27
+SC|Santa Catarina|S|Sul|Joinville|1074410|11
+SC|Santa Catarina|S|Sul|Rio do Sul|239410|20
+SC|Santa Catarina|S|Sul|São Bento do Sul|133609|3
+SC|Santa Catarina|S|Sul|São Miguel do Oeste|186090|21
+SC|Santa Catarina|S|Sul|Tabuleiro|26885|5
+SC|Santa Catarina|S|Sul|Tijucas|120956|7
+SC|Santa Catarina|S|Sul|Tubarão|439877|20
+SC|Santa Catarina|S|Sul|Xanxerê|165611|17
+SE|Sergipe|NE|Nordeste|Agreste de Itabaiana|179636|7
+SE|Sergipe|NE|Nordeste|Agreste de Lagarto|119963|2
+SE|Sergipe|NE|Nordeste|Aracaju|935028|4
+SE|Sergipe|NE|Nordeste|Baixo Cotinguiba|85912|7
+SE|Sergipe|NE|Nordeste|Boquim|156077|8
+SE|Sergipe|NE|Nordeste|Carira|69232|6
+SE|Sergipe|NE|Nordeste|Cotinguiba|47814|4
+SE|Sergipe|NE|Nordeste|Estância|128747|4
+SE|Sergipe|NE|Nordeste|Japaratuba|52911|5
+SE|Sergipe|NE|Nordeste|Nossa Senhora das Dores|63789|6
+SE|Sergipe|NE|Nordeste|Propriá|87464|10
+SE|Sergipe|NE|Nordeste|Sergipana do Sertão do São Francisco|170224|9
+SE|Sergipe|NE|Nordeste|Tobias Barreto|115071|3
+SP|São Paulo|SE|Sudeste|Adamantina|156563|14
+SP|São Paulo|SE|Sudeste|Amparo|195629|8
+SP|São Paulo|SE|Sudeste|Andradina|186632|11
+SP|São Paulo|SE|Sudeste|Araraquara|543615|15
+SP|São Paulo|SE|Sudeste|Araçatuba|291925|7
+SP|São Paulo|SE|Sudeste|Assis|267585|17
+SP|São Paulo|SE|Sudeste|Auriflama|42838|9
+SP|São Paulo|SE|Sudeste|Avaré|199367|8
+SP|São Paulo|SE|Sudeste|Bananal|26257|5
+SP|São Paulo|SE|Sudeste|Barretos|144480|3
+SP|São Paulo|SE|Sudeste|Batatais|111713|6
+SP|São Paulo|SE|Sudeste|Bauru|617498|21
+SP|São Paulo|SE|Sudeste|Birigui|270744|18
+SP|São Paulo|SE|Sudeste|Botucatu|229759|7
+SP|São Paulo|SE|Sudeste|Bragança Paulista|629449|11
+SP|São Paulo|SE|Sudeste|Campinas|3063640|16
+SP|São Paulo|SE|Sudeste|Campos do Jordão|67802|4
+SP|São Paulo|SE|Sudeste|Capão Bonito|133633|10
+SP|São Paulo|SE|Sudeste|Caraguatatuba|356118|4
+SP|São Paulo|SE|Sudeste|Catanduva|218088|13
+SP|São Paulo|SE|Sudeste|Dracena|123682|10
+SP|São Paulo|SE|Sudeste|Fernandópolis|116167|11
+SP|São Paulo|SE|Sudeste|Franca|442116|10
+SP|São Paulo|SE|Sudeste|Franco da Rocha|553805|4
+SP|São Paulo|SE|Sudeste|Guaratinguetá|408069|11
+SP|São Paulo|SE|Sudeste|Guarulhos|1537502|3
+SP|São Paulo|SE|Sudeste|Itanhaém|264922|5
+SP|São Paulo|SE|Sudeste|Itapecerica da Serra|1182458|8
+SP|São Paulo|SE|Sudeste|Itapetininga|217992|5
+SP|São Paulo|SE|Sudeste|Itapeva|248901|12
+SP|São Paulo|SE|Sudeste|Ituverava|91580|5
+SP|São Paulo|SE|Sudeste|Jaboticabal|410036|17
+SP|São Paulo|SE|Sudeste|Jales|159541|23
+SP|São Paulo|SE|Sudeste|Jaú|350189|12
+SP|São Paulo|SE|Sudeste|Jundiaí|792435|5
+SP|São Paulo|SE|Sudeste|Limeira|638422|8
+SP|São Paulo|SE|Sudeste|Lins|161718|8
+SP|São Paulo|SE|Sudeste|Marília|348657|13
+SP|São Paulo|SE|Sudeste|Mogi Mirim|425889|7
+SP|São Paulo|SE|Sudeste|Mogi das Cruzes|1569296|8
+SP|São Paulo|SE|Sudeste|Nhandeara|65334|9
+SP|São Paulo|SE|Sudeste|Novo Horizonte|85593|6
+SP|São Paulo|SE|Sudeste|Osasco|2177868|8
+SP|São Paulo|SE|Sudeste|Ourinhos|305389|18
+SP|São Paulo|SE|Sudeste|Paraibuna/Paraitinga|72594|7
+SP|São Paulo|SE|Sudeste|Piedade|206196|5
+SP|São Paulo|SE|Sudeste|Piracicaba|643267|12
+SP|São Paulo|SE|Sudeste|Pirassununga|186409|4
+SP|São Paulo|SE|Sudeste|Presidente Prudente|589713|30
+SP|São Paulo|SE|Sudeste|Registro|259132|12
+SP|São Paulo|SE|Sudeste|Ribeirão Preto|1168879|16
+SP|São Paulo|SE|Sudeste|Rio Claro|268366|6
+SP|São Paulo|SE|Sudeste|Santos|1597274|6
+SP|São Paulo|SE|Sudeste|Sorocaba|1624006|15
+SP|São Paulo|SE|Sudeste|São Carlos|344696|6
+SP|São Paulo|SE|Sudeste|São Joaquim da Barra|210726|9
+SP|São Paulo|SE|Sudeste|São José do Rio Preto|887418|29
+SP|São Paulo|SE|Sudeste|São José dos Campos|1627017|8
+SP|São Paulo|SE|Sudeste|São João da Boa Vista|409347|14
+SP|São Paulo|SE|Sudeste|São Paulo|14925389|8
+SP|São Paulo|SE|Sudeste|Tatuí|304145|9
+SP|São Paulo|SE|Sudeste|Tupã|112681|7
+SP|São Paulo|SE|Sudeste|Votuporanga|156786|9
+TO|Tocantins|N|Norte|Araguaína|317407|17
+TO|Tocantins|N|Norte|Bico do Papagaio|206427|25
+TO|Tocantins|N|Norte|Dianópolis|114968|20
+TO|Tocantins|N|Norte|Gurupi|141537|14
+TO|Tocantins|N|Norte|Jalapão|72109|15
+TO|Tocantins|N|Norte|Miracema do Tocantins|144632|24
+TO|Tocantins|N|Norte|Porto Nacional|456606|11
+TO|Tocantins|N|Norte|Rio Formoso|130620|13
