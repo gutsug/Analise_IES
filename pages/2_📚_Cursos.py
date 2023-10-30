@@ -39,8 +39,10 @@ sns.set(style="darkgrid")
 # ------------------------------------------------------------------------
 st.cache_data
 # carregar algumas colunas pois a carga do df é demorado
+# dados_cursos_2012_2022.csv alterado para dados_cursos_2012_2022_reduzida01.csv
+
 def carrega_df():
-	df_all = pd.read_csv('./arquivos/dados_cursos_2012_2022.csv', sep='|', 
+	df_all = pd.read_csv('./arquivos/dados_cursos_2012_2022_reduzida01.csv', sep='|', 
 						low_memory=False, 
 						usecols=['NU_ANO_CENSO','Tipo_Cat_Admn','Tipo_Org_Acad','Tipo_Org_Principal', 'Tipo_Grau_Acad','Tipo_Rede',
 						'NO_CINE_AREA_GERAL', 'NO_CURSO','QT_CURSO','QT_MAT','QT_ING','QT_CONC'])
