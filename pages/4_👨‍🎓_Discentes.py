@@ -15,7 +15,7 @@ st.set_page_config(page_title='Analise Discentes',
                     initial_sidebar_state='expanded')
 
                     
-st.title(':bar_chart: Análise Discentes :male-student: :female-student: ')
+st.title(':bar_chart: Análise dos Discentes das IES :male-student: :female-student: ')
 st.subheader('Escopo: Matrículas, Ingressantes e Concluintes')
 st.subheader("Dados de 2012-2022")
 st.markdown("---")  
@@ -37,13 +37,18 @@ sns.set(style="darkgrid")
 @st.cache_data
 # carregar algumas colunas pois a carga do df é demorado
 # dados_cursos_2012_2022.csv alterado para dados_cursos_2012_2022_reduzida01.csv
+                                               
 
 def carrega_df():
 	df_all = pd.read_csv('./arquivos/dados_cursos_2012_2022_reduzida01.csv', sep='|', 
 						low_memory=False, 
 						usecols=['NU_ANO_CENSO','SG_UF','CO_IES',
                         'Tipo_Cat_Admn','Tipo_Org_Acad','Tipo_Org_Principal', 'Tipo_Grau_Acad','Tipo_Rede',
-						'NO_CINE_AREA_GERAL', 'NO_CURSO','QT_CURSO','QT_MAT','QT_ING','QT_CONC','TIPO_INST',
+						'NO_CINE_AREA_GERAL', 'NO_CURSO','QT_CURSO','QT_MAT',
+                        'QT_ING','QT_ING_FEM','QT_ING_MASC',
+                        'QT_CONC','TIPO_INST',
+                        'QT_VG_TOTAL', 'QT_VG_TOTAL_DIURNO', 'QT_VG_TOTAL_NOTURNO', 
+                        'QT_INSCRITO_TOTAL', 
                         'QT_MAT_0_17', 'QT_MAT_18_24', 'QT_MAT_25_29', 'QT_MAT_30_34',
                         'QT_MAT_35_39', 'QT_MAT_40_49', 'QT_MAT_50_59', 'QT_MAT_60_MAIS',
                         'QT_ING_0_17', 'QT_ING_18_24', 'QT_ING_25_29', 'QT_ING_30_34','QT_ING_35_39', 'QT_ING_40_49', 'QT_ING_50_59', 'QT_ING_60_MAIS',
@@ -476,9 +481,13 @@ st.markdown("---")
 st.title(':books: :adult: :sparkles: Matriculas, Ingressantes e Concluintes por Idade :male-student: :female-student:')
 st.markdown("---")     
 
+
 # ------------------------------------------------------------------------				  
 # Plot01: 0 a 17
 # ------------------------------------------------------------------------
+titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: 0 a 17 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_0_17'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_0_17'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_0_17'].rename(columns={'Total_Concl':'Total'})
@@ -496,6 +505,9 @@ st.markdown("---")
 # ------------------------------------------------------------------------				  
 # Plot02: 18 a 24
 # ------------------------------------------------------------------------
+titulo_plot02 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: 18 a 24 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_18_24'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_18_24'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_18_24'].rename(columns={'Total_Concl':'Total'})
@@ -513,6 +525,9 @@ st.markdown("---")
 # ------------------------------------------------------------------------				  
 # Plot03: 25 a 29
 # ------------------------------------------------------------------------
+titulo_plot03 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: 25 a 29 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_25_29'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_25_29'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_25_29'].rename(columns={'Total_Concl':'Total'})
@@ -530,6 +545,9 @@ st.markdown("---")
 # ------------------------------------------------------------------------				  
 # Plot04: 30 a 34
 # ------------------------------------------------------------------------
+titulo_plot04 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: 30 a 34 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_30_34'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_30_34'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_30_34'].rename(columns={'Total_Concl':'Total'})
@@ -547,6 +565,9 @@ st.markdown("---")
 # ------------------------------------------------------------------------				  
 # Plot05: 35 a 39
 # ------------------------------------------------------------------------
+titulo_plot05 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: 35 a 39 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_35_39'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_35_39'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_35_39'].rename(columns={'Total_Concl':'Total'})
@@ -564,6 +585,9 @@ st.markdown("---")
 # ------------------------------------------------------------------------				  
 # Plot06: Acima 40
 # ------------------------------------------------------------------------
+titulo_plot06 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução das Matrículas, Ingressantes e Concluintes PRESENCIAIS - Faixa: Acima de 40 anos</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_40_49'].rename(columns={'Total_MAT':'Total'})
 df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_40_49'].rename(columns={'Total_Ingress':'Total'})
 df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_40_49'].rename(columns={'Total_Concl':'Total'})
@@ -595,4 +619,81 @@ st.pyplot(f)
 st.markdown("---")
 
 
-                   
+# ------------------------------------------------------------------------
+# PARTE 06 - Visualização Vagas e Ingressantes por Area Geral por Ano
+# ------------------------------------------------------------------------                   
+st.title(':school: :adult: :books: Vagas e Ingressantes por Sexo :flag-br:')
+st.markdown("---")     
+
+
+# PREPARA DADOS
+distr_vag_ingr_sexo = df_all.groupby(['NU_ANO_CENSO', 'NO_CINE_AREA_GERAL']).agg ({
+                                              'QT_VG_TOTAL':'sum',
+                                              'QT_VG_TOTAL_DIURNO':'sum',
+                                              'QT_VG_TOTAL_NOTURNO':'sum',
+                                              'QT_INSCRITO_TOTAL':'sum',
+                                              'QT_ING':'sum',
+                                              'QT_ING_FEM':'sum',
+                                              'QT_ING_MASC':'sum' })
+
+distr_vag_ingr_sexo = distr_vag_ingr_sexo.reset_index().rename(columns={
+                                                                'QT_VG_TOTAL':'Total_vagas',
+                                                                'QT_VG_TOTAL_DIURNO':'Total_vag_d',
+                                                                'QT_VG_TOTAL_NOTURNO':'Total_vagas_n',
+                                                                'QT_INSCRITO_TOTAL':'Total_insc',
+                                                                'QT_ING':'Total_ing',
+                                                                'QT_ING_FEM':'Total_ing_f',
+                                                                'QT_ING_MASC':'Total_ing_m'})
+
+                                                                
+distr_vag_ingr_sexo_melt = distr_vag_ingr_sexo.melt(
+    id_vars=['NU_ANO_CENSO','NO_CINE_AREA_GERAL'], 
+    value_vars=['Total_vagas','Total_vag_d','Total_vagas_n','Total_insc','Total_ing','Total_ing_f','Total_ing_m'],
+    var_name='Variavel_total',
+    value_name='Total')
+                                                                
+distr_vag_ingr_sexo_plot01 = distr_vag_ingr_sexo_melt[distr_vag_ingr_sexo_melt['Variavel_total'].\
+                                        isin(['Total_vagas','Total_ing_f','Total_ing_m'])]                                                                
+# ------------------------------------------------------------------------
+# Plot 01: Visualização Vagas e Ingressantes por Area Geral por Ano
+# ------------------------------------------------------------------------	
+lista_areas = list(distr_vag_ingr_sexo_plot01['NO_CINE_AREA_GERAL'].unique())
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    label01 = '<p style="font-family:Courier; color:#992600; font-size: 20px;"><b>Selecione uma area de conhecimento específica:</b></p>'
+    st.markdown(label01, unsafe_allow_html=True) 
+    
+with col2:
+    area_selecionada = st.selectbox(label="Selecione uma Area de conhecimento Geral específica:", options=lista_areas, label_visibility="collapsed")
+    
+with col3:    
+    st.subheader(':date:')
+
+if area_selecionada:
+    titulo_plot01 =  f'<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização Vagas e Ingressantes para a Area Geral: {area_selecionada}</b></p>'
+    st.markdown(titulo_plot01, unsafe_allow_html=True)    
+    
+    
+    dados1 = distr_vag_ingr_sexo_plot01[
+    (distr_vag_ingr_sexo_plot01['NO_CINE_AREA_GERAL']==area_selecionada)]
+    fig = px.bar(dados1,
+             y='Total', 
+             x='NU_ANO_CENSO', 
+             color='Variavel_total',
+             color_discrete_sequence=px.colors.qualitative.G10,
+             barmode = 'group', width=1200, height=700)
+    fig.update_layout(yaxis=dict(title='Total'),
+    xaxis=dict(title='', tickfont_size=18),      
+    legend=dict(x=0.03,y=0.96, font = dict(size = 18))) 
+    
+    fig.update_layout(plot_bgcolor='#dbe0f0') 
+    
+    st.plotly_chart(fig, use_container_width=True)
+
+
+    
+    
+
+
