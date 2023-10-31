@@ -470,5 +470,129 @@ f = gerar_plot_evol_ano(serie_concl_faixas, col_ano, col_grupo, col_soma, legend
 st.pyplot(f)
 st.markdown("---")
 
+# ------------------------------------------------------------------------
+# PARTE 05 - Todos Matriculas, Ingressos e Concluintes
+# ------------------------------------------------------------------------
+st.title(':books: :adult: :sparkles: Matriculas, Ingressantes e Concluintes por Idade :male-student: :female-student:')
+st.markdown("---")     
+
+# ------------------------------------------------------------------------				  
+# Plot01: 0 a 17
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_0_17'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_0_17'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_0_17'].rename(columns={'Total_Concl':'Total'})
+serie_0_17 = pd.concat([df1, df2, df3])
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(serie_0_17, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot02: 18 a 24
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_18_24'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_18_24'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_18_24'].rename(columns={'Total_Concl':'Total'})
+serie_18_24 = pd.concat([df1, df2, df3])
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(serie_18_24, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot03: 25 a 29
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_25_29'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_25_29'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_25_29'].rename(columns={'Total_Concl':'Total'})
+serie_25_29 = pd.concat([df1, df2, df3])
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(serie_25_29, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot04: 30 a 34
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_30_34'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_30_34'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_30_34'].rename(columns={'Total_Concl':'Total'})
+serie_30_34 = pd.concat([df1, df2, df3])
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(serie_30_34, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot05: 35 a 39
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_35_39'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_35_39'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_35_39'].rename(columns={'Total_Concl':'Total'})
+serie_35_39 = pd.concat([df1, df2, df3])
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(serie_35_39, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot06: Acima 40
+# ------------------------------------------------------------------------
+df1 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_40_49'].rename(columns={'Total_MAT':'Total'})
+df2 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_40_49'].rename(columns={'Total_Ingress':'Total'})
+df3 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_40_49'].rename(columns={'Total_Concl':'Total'})
+
+df4 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_50_59'].rename(columns={'Total_MAT':'Total'})
+df5 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_50_59'].rename(columns={'Total_Ingress':'Total'})
+df6 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_50_59'].rename(columns={'Total_Concl':'Total'})
+
+df7 = serie_matr_faixas[serie_matr_faixas['Faixa_etaria']=='QT_MAT_60_MAIS'].rename(columns={'Total_MAT':'Total'})
+df8 = serie_ingr_faixas[serie_ingr_faixas['Faixa_etaria']=='QT_ING_60_MAIS'].rename(columns={'Total_Ingress':'Total'})
+df9 = serie_concl_faixas[serie_concl_faixas['Faixa_etaria']=='QT_CONC_60_MAIS'].rename(columns={'Total_Concl':'Total'})
+
+serie_acima40 = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9])
+
+serie_acima40['Faixa_etaria'] = np.where(serie_acima40['Faixa_etaria'].str.contains('QT_CONC'),'QT_CONC_acima_40',serie_acima40['Faixa_etaria'])
+serie_acima40['Faixa_etaria'] = np.where(serie_acima40['Faixa_etaria'].str.contains('QT_ING'),'QT_ING_acima_40',serie_acima40['Faixa_etaria'])
+serie_acima40['Faixa_etaria'] = np.where(serie_acima40['Faixa_etaria'].str.contains('QT_MAT'),'QT_MAT_acima_40',serie_acima40['Faixa_etaria'])
+
+serie_acima40 = serie_acima40.groupby(['NU_ANO_CENSO','Faixa_etaria'])['Total'].sum().reset_index()
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total'
+legenda_outside = 'N'
+
+
+f = gerar_plot_evol_ano(serie_acima40, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
 
                    
