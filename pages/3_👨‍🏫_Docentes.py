@@ -62,7 +62,7 @@ def criar_e_exibir_grafico():
         ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
         ax.axis('equal')
         #ax.set_title('Docentes IES por Sexo')
-        st.pyplot(fig, use_container_width=False)
+        st.pyplot(fig, use_container_width=True)
 
     elif opcao_sexo == "IES Privadas":
         titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES privadas</b></p>'
@@ -78,7 +78,7 @@ def criar_e_exibir_grafico():
         explode = (0.1, 0)
         plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
         plt.axis('equal')
-        st.pyplot(fig, use_container_width=False)
+        st.pyplot(fig, use_container_width=True)
     
     elif opcao_sexo == "IES Públicas":
         titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES públicas</b></p>'
@@ -94,7 +94,7 @@ def criar_e_exibir_grafico():
         fig, ax = plt.subplots(figsize=(3, 3))
         plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
         plt.axis('equal')
-        st.pyplot(fig, use_container_width=False)
+        st.pyplot(fig, use_container_width=True)
 
 # Verificar se o botão de atualização foi pressionado e, em seguida, criar e exibir o gráfico
 if botao_atualizar:
@@ -127,7 +127,7 @@ if opcao_estudo == "Geral":
     ax.bar(estudo_labels, somas_estudo)
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
         
 elif opcao_estudo == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -139,7 +139,7 @@ elif opcao_estudo == "IES Públicas":
     ax.bar(estudo_labels, somas_estudo)
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 elif opcao_estudo == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -152,7 +152,7 @@ elif opcao_estudo == "IES Privadas":
     ax.bar(estudo_labels, somas_estudo)
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
     
 st.markdown("---")
 
@@ -187,7 +187,7 @@ if opcao_idade == "Geral":
     ax.set_xlabel('Faixa Etária')
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 elif opcao_idade == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -198,7 +198,7 @@ elif opcao_idade == "IES Públicas":
     ax.set_xlabel('Faixa Etária')
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 elif opcao_idade == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -209,7 +209,7 @@ elif opcao_idade == "IES Privadas":
     ax.set_xlabel('Faixa Etária')
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 st.markdown("---")
 
@@ -253,7 +253,7 @@ if opcao_raca == "Geral":
     ax.bar(raca_labels, porcentagens_raca)
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 elif opcao_raca == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -272,7 +272,7 @@ elif opcao_raca == "IES Públicas":
     ax.bar(raca_labels, porcentagens_raca)
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 elif opcao_raca == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -291,7 +291,7 @@ elif opcao_raca == "IES Privadas":
     ax.bar(raca_labels, porcentagens_raca)
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, use_container_width=True)
 
 st.markdown("---")
 
@@ -317,7 +317,7 @@ ax.set_ylabel('Jornada de Trabalho')
 ax.set_xlabel('Quantidade de Docentes')
 ax.set_title('Quantidade de Docentes por Jornada de Trabalho (Ordem Decrescente)')
 
-st.pyplot(fig, use_container_width=False)
+st.pyplot(fig, use_container_width=True)
 
 st.markdown("---")
 
@@ -344,7 +344,7 @@ explode = (0.1, 0)  # Explodir a fatia "Com Deficiência"
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
 ax.axis('equal')
-st.pyplot(fig, use_container_width=False)
+st.pyplot(fig, use_container_width=True)
 
 
 
