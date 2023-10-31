@@ -7,6 +7,8 @@ import seaborn as sns
 import plotly
 import plotly.express as px
 import streamlit as st
+import geobr
+import geopandas as gpd
 
 
 st.set_page_config(layout='wide')
@@ -35,7 +37,6 @@ distr_cat_org_br = distr_cat_org_br.rename(columns={'CO_IES':'Total_IES'})
 ies_agg_UF = pd.read_csv('./arquivos/dados_IES_agg_UF.csv', sep='|', 
                    low_memory=False)
 
-# renomear colunas para nomes mais intuitivos
 ies_agg_UF = ies_agg_UF.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Total_Pop_IES':'Total_Pop_UF_IES',
                                         'Total_Pop_IBGE_2022':'Total_Pop_UF',
@@ -46,8 +47,6 @@ ies_agg_UF = ies_agg_UF.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Cob_Meso':'Cob_Meso_com_IES',
                                         'Cob_Micro':'Cob_Micro_com_IES'})
 
-# ordenar as colunas
-# desconsiderar 'IES_hab'
 ies_agg_UF = ies_agg_UF[['SG_UF_IES', 'Total_Pop_UF', 'Total_Mun_UF', 'Total_Meso_UF', 'Total_Micro_UF',
                          'Total_IES', 'Total_Priv', 'Total_Publ','Total_mun_IES', 'Total_Pop_UF_IES',
                          'Total_Meso_IES','Total_Micro_IES',
@@ -58,35 +57,21 @@ total_ies = ies['NO_IES'].count()
 
 # total de IES por Categoria Adm
 total_ies_cat_adm = ies['Tipo_Cat_Admn'].value_counts()#.reset_index().rename(columns={'count':'Total'})
-
-# percentual de IES por Categoria Adm
 perc_ies_cat_adm = round(total_ies_cat_adm / total_ies * 100,2) 
-
-# consolidar em dataframe
 distr_ies_cat_br = pd.DataFrame({'Total_IES'   : total_ies_cat_adm,
                                  'Total_IES_p':  perc_ies_cat_adm}).reset_index()
 
-# total de IES por UF
+# total de IES por Organização 
 tot_ies_uf = ies.groupby('SG_UF_IES')['NO_IES'].count()
-
-# total de IES por Org e UF
 tot_ies_org_uf = ies.groupby(['SG_UF_IES','Tipo_Org_Acad'])['NO_IES'].count()
-
-# percentual de IES por Tipo e UF
 perc_ies_org_uf = round(tot_ies_org_uf / tot_ies_uf *100,2)
-
-# consolidar em dataframe
 distr_ies_org_uf = pd.DataFrame({'Total_Org'   : tot_ies_org_uf,
                                  'Total_Org_p': perc_ies_org_uf}).reset_index()
 tot_ies_uf = ies.groupby('SG_UF_IES')['NO_IES'].count()
 
 # total de IES por Tipo e UF
 tot_ies_tp_uf = ies.groupby(['SG_UF_IES','TIPO_INST'])['NO_IES'].count()
-
-# percentual de IES por Tipo e UF
 perc_ies_tp_uf = round(tot_ies_tp_uf / tot_ies_uf *100,2)
-
-# consolidar em dataframe
 distr_ies_tp_uf = pd.DataFrame({'Total_IES'   : tot_ies_tp_uf,
                                 'Total_IES_p': perc_ies_tp_uf}).reset_index()
 
@@ -94,7 +79,6 @@ distr_ies_tp_uf = pd.DataFrame({'Total_IES'   : tot_ies_tp_uf,
 #--------------------------------------------------------------------------------------------
 # Carrega dados IES agregados por Região
 #------------------------------------------------------------------------------------------
-
 ies_agg_regiao = pd.read_csv('./arquivos/dados_IES_agg_Regiao.csv', sep='|', 
                    low_memory=False)
 
@@ -117,34 +101,21 @@ ies_agg_regiao = ies_agg_regiao[['REGIAO', 'NOME_REGIAO', 'Total_Pop_UF', 'Total
 
 tot_ies_regiao = ies.groupby('NO_REGIAO_IES')['NO_IES'].count()
 
-# total de IES por Org e Regiao
 tot_ies_org_regiao = ies.groupby(['NO_REGIAO_IES','Tipo_Org_Acad'])['NO_IES'].count()
-
-# percentual de IES por Tipo e Regiao
 perc_ies_org_regiao = round(tot_ies_org_regiao / tot_ies_regiao *100,2)
-
-# consolidar em dataframe
 distr_ies_org_regiao = pd.DataFrame({'Total_Org'   : tot_ies_org_regiao,
                                  'Total_Org_p': perc_ies_org_regiao}).reset_index()
 
-# total de IES por Região
+
 tot_ies_regiao = ies.groupby('NO_REGIAO_IES')['NO_IES'].count()
-
-# total de IES por Tipo e Regiao
 tot_ies_tp_regiao = ies.groupby(['NO_REGIAO_IES','TIPO_INST'])['NO_IES'].count()
-
-# percentual de IES por Tipo e regiao
 perc_ies_tp_regiao = round(tot_ies_tp_regiao / tot_ies_regiao *100,2)
-
-# consolidar em dataframe
 distr_ies_tp_regiao = pd.DataFrame({'Total_IES'   : tot_ies_tp_regiao,
                                 'Total_IES_p': perc_ies_tp_regiao}).reset_index()
-
 
 # -----------------------------------------------------------------------------------
 # Plot 01:  Distribuição IES no Brasil - 2022
 # -----------------------------------------------------------------------------------
-
 titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>Distribuição IES no Brasil</b></p>'
 st.markdown(titulo_plot01, unsafe_allow_html=True)
 
@@ -162,16 +133,40 @@ fig.update_layout(title={'text': "", 'y':0.90, 'x':0.5},
                   yaxis=dict(title='Total IES', titlefont_size=20, tickfont_size=12),
                   xaxis=dict(title=''),
                   coloraxis_showscale=False)
-
 # rotacionar valores no eixo x
 fig.update_xaxes(tickangle = -45)
 
-#fig.show()
-
 st.plotly_chart(fig, use_container_width=True)
-
-
 st.markdown("---")
+
+
+# -----------------------------------------------------------------------------------
+# Mapa 01:  Distribuição IES no Brasil - 2022
+# -----------------------------------------------------------------------------------
+titulo_map01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>Mapa do Brasil com Instituições de Ensino Superior</b></p>'
+st.markdown(titulo_map01, unsafe_allow_html=True)
+
+
+#cria o dataframe das IES publicas e privadas
+df_publica = ies[ies['TIPO_INST'] == 'Pública']
+df_privada = ies[ies['TIPO_INST'] == 'Privada']
+states = geobr.read_state(code_state='all')
+
+fig, ax = plt.subplots(figsize=(6, 6))
+states.boundary.plot(ax=ax, linewidth=0.4, color='black')
+ax.scatter(df_privada['LNG'], df_privada['LAT'], color='coral', label='Instituição Privada', s=10, alpha=0.7)
+ax.scatter(df_publica['LNG'], df_publica['LAT'], color='red', label='Instituição Pública', s=10, alpha=0.7)
+ax.set_xlim(-75, -30)  # Ajuste os limites do mapa de acordo com a localização desejada
+ax.set_ylim(-35, 5)
+#ax.set_xlabel('Longitude')
+#ax.set_ylabel('Latitude')
+ax.tick_params(axis='y', labelsize=6)
+ax.tick_params(axis='x', labelsize=6)
+#ax.set_title('Mapa do Brasil com Instituições de Ensino Superior')
+ax.legend(loc='best', fontsize=8)
+st.pyplot(fig,  use_container_width=False)
+
+
 
 #--------------------------------------------------------------------------------------
 # Plot 02 - Número de Instituições de Ensino Superior por região do Brasil
@@ -201,10 +196,7 @@ fig.update_xaxes(tickangle = -45)
 st.plotly_chart(fig, use_container_width=True)
 #fig.show()
 
-
 st.caption('As IES estão presentes em todos os estados do território nacional, em maior número nos estados da região sudeste do país (1.098 IES, 42,31%), condizente com a proporção populacional da região que é de aproximadamente 40 % da população total do país.')
-
-
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -281,7 +273,6 @@ st.plotly_chart(fig, use_container_width=True)
              
 st.caption('A distribuição das IES nos estados, por tipo de organização, segue o mesmo padrão encontrado nos dados agrupados em nível nacional, com predominância significativa de instituições do tipo faculdade. Contudo, essa proporção tem variação entre os estados: enquanto a maioria dos estados possuem majoritariamente faculdades e centros universitários; os estados de Roraima, Rio Grande do Sul, Mato Grosso do Sul e Amapá destacam-se por possuir universidades como o segundOtipo de IES mais prevalente.')  
 
-
 st.markdown("---")
 
 # -----------------------------------------------------------------------------------
@@ -312,7 +303,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 st.caption('Quando analisa-se a distribuição das IES pelas regiões do país, em função do tipo de organização acadêmica, é possível observar que a maior prevalência de faculdades e centros universitários está presente em todas as regiões. Quando estratifica-se a análise retirando as faculdades, pode-se observar que a região sul possui, entre os tipos, a maior proporção de universidades que as demais regiões do país. Ainda assim, em todas as regiões a ordem proporcional é sempre a mesma: faculdades, centro-universitários, universidades, Institutos Federais e Cefet.')
-
 
 st.markdown("---")
 
@@ -345,7 +335,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 st.caption('Em nível nacional, as instituições privadas (com e sem fins lucrativos) ocupam a proporção de 87,98% do total de IES no Brasil. Pode-se observar um cenário aproximado com predominância de instituições privadas quando analisado por UF, destacando-se o estado de MT com a maior proporção de instituições privadas (94,44%) e Roraima com a menor proporção (66.67%).')
-
 
 st.markdown("---")
 
