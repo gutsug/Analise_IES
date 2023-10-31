@@ -59,7 +59,7 @@ if opcao_sexo == "Geral":
     fig, ax = plt.subplots(figsize=(3, 3))
     ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     ax.axis('equal')
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig, use_container_width=False)
 
 elif opcao_sexo == "IES Privadas":
     titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES privadas</b></p>'
@@ -75,7 +75,7 @@ elif opcao_sexo == "IES Privadas":
     explode = (0.1, 0)
     plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     plt.axis('equal')
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig, use_container_width=False)
     
 elif opcao_sexo == "IES Públicas":
     titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES públicas</b></p>'
@@ -91,12 +91,17 @@ elif opcao_sexo == "IES Públicas":
     fig, ax = plt.subplots(figsize=(3, 3))
     plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     plt.axis('equal')
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig, use_container_width=False)
 
 
-st.caption('Podemos observar que há uma prevalência de docentes do sexo mascullino em relação a docentes do sexo feminino. Essa prevalência é mais observada nas IES públicas, na qual 55,3% dos docentes são homens. Nas IES privadas, embora a maioria ainda seja do sexo masculino, essa diferença é menor e as mulheres correspondem a 49,7% do total de docentes.')
-
-st.markdown("---")
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 20px;">Podemos observar que há uma prevalência de docentes do sexo mascullino em relação a docentes do sexo feminino. Essa prevalência é mais observada nas IES públicas, na qual 55,3% dos docentes são homens. Nas IES privadas, embora a maioria ainda seja do sexo masculino, essa diferença é menor e as mulheres correspondem a 49,7% do total de docentes.</p>'    
+st.markdown(write, unsafe_allow_html=True)
+st.markdown("---")    
+    
 
 # ------------------------------------------------------------------------
 # Plot 02: Escolaridade dos docentes
@@ -152,8 +157,12 @@ elif opcao_estudo == "IES Privadas":
     st.pyplot(fig, use_container_width=True)
 
     
-st.caption('Podemos observar que nas IES públicas, a maioria dos docentes possuem doutorado. Já nas IES privadas, o maior percentual de nível de estudo é mestrado.')
-    
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 20px;">Podemos observar que nas IES públicas, a maioria dos docentes possuem doutorado. Já nas IES privadas, o maior percentual de nível de estudo é mestrado.</p>'    
+st.markdown(write, unsafe_allow_html=True)    
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -211,8 +220,13 @@ elif opcao_idade == "IES Privadas":
     plt.xticks(rotation=45)
     st.pyplot(fig, use_container_width=True)
 
-st.caption('Observa-se que nas IES privadas a proporção de docentes mais novos (até 39 anos) é maior do que em relação às IES públicas. Nos dois casos, o maior percentual de docentes tem entre 40 - 44 anos') 
-           
+
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 20px;">Observa-se que nas IES privadas a proporção de docentes mais novos (até 39 anos) é maior do que em relação às IES públicas. Nos dois casos, o maior percentual de docentes tem entre 40 - 44 anos</p>'    
+st.markdown(write, unsafe_allow_html=True)    
 st.markdown("---")
 
 
@@ -295,8 +309,13 @@ elif opcao_raca == "IES Privadas":
     ax.set_ylabel('Porcentagem de Docentes (%)')
     st.pyplot(fig, use_container_width=True)
 
-st.caption('O percentual de docentes brancos é maior nos dois casos. Nas IES há uma alta taxa de não declarados.') 
-           
+    
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 20px;">O percentual de docentes brancos é maior nos dois casos. Nas IES há uma alta taxa de não declarados.</p>'    
+st.markdown(write, unsafe_allow_html=True)    
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -353,8 +372,13 @@ elif opcao_jornada == "IES Privadas":
     ax.set_xlabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
 
-st.caption('Nas IES particulares, a maioria dos docentes têm uma jornada de trabalho parcial ou como horista. Já nas IES públicas, a maioria possui carga horária integral com dedicação exclusiva')
-
+    
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 18px;">Nas IES particulares, a maioria dos docentes têm uma jornada de trabalho parcial ou como horista. Já nas IES públicas, a maioria possui carga horária integral com dedicação exclusiva</p>'    
+st.markdown(write, unsafe_allow_html=True)
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -377,11 +401,16 @@ labels = ['Com Deficiência', 'Sem Deficiência']
 sizes = [docentes_df['Porcentagem_Com_Deficiencia'].sum(), docentes_df['Porcentagem_Sem_Deficiencia'].sum()]
 colors = ['#ff9999', '#66b3ff']  # Cores para "Com Deficiência" e "Sem Deficiência"
 explode = (0.1, 0)  # Explodir a fatia "Com Deficiência"
-fig, ax = plt.subplots(figsize=(8, 4))
+fig, ax = plt.subplots(figsize=(2,2))
 ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
 ax.axis('equal')
-st.pyplot(fig, use_container_width=True)
+st.pyplot(fig, use_container_width=False)
 
-st.caption('Observa-se que os docentes com deficiência representam apenas 0,4% do total')
+# -------------------
+# Analise
+# -------------------
+st.subheader('Análise:')
+write = '<p style="font-family:Arial; color:black; font-size: 20px;">Observa-se que os docentes com deficiência representam apenas 0,4% do total</p>'    
+st.markdown(write, unsafe_allow_html=True)
 st.markdown("---")
 
