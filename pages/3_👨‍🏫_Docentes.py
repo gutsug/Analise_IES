@@ -28,10 +28,12 @@ docentes_df = pd.read_csv('./arquivos/docentes.csv', sep='|', low_memory=False)
 # Exibir os nomes das colunas no DataFrame: st.write(docentes_df.columns)
 
 # ------------------------------------------------------------------------
-# Plot 01: docentes por sexo geral, pública e privada, com caixa de seleção
+# Plot 01: docentes por sexo geral, pública e privada
 # ------------------------------------------------------------------------
+
 titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>Docentes IES por sexo</b></p>'
 st.markdown(titulo_plot01, unsafe_allow_html=True)
+
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -39,66 +41,61 @@ with col1:
     st.markdown(label01, unsafe_allow_html=True)
     
 with col2:
-    opcao_sexo = st.selectbox("Selecione a categoria:", options=["Geral", "IES Privadas", "IES Públicas"], label_visibility="collapsed")
+    opcao_sexo = st.selectbox("Selecione a categoria:", options=["Geral", "IES Públicas", "IES Privadas"], key='opcao_sexo', label_visibility="collapsed")  
     
 with col3:
     st.subheader(':school:')
 
-# Verificar se o botão de atualização foi pressionado
-botao_atualizar = st.button("Atualizar Gráfico")
 
-# Função para criar e exibir o gráfico
-def criar_e_exibir_grafico():
-    if opcao_sexo == "Geral":
-        titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>Geral</b></p>'
-        st.markdown(titulo_plot01, unsafe_allow_html=True)
-        sexo_feminino = docentes_df['QT_DOC_EX_FEMI']
-        sexo_masculino = docentes_df['QT_DOC_EX_MASC']
-        labels = ['Feminino', 'Masculino']
-        sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
-        colors = ['pink', 'lightblue']
-        explode = (0.1, 0)
-        fig, ax = plt.subplots(figsize=(3, 3))
-        ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
-        ax.axis('equal')
-        #ax.set_title('Docentes IES por Sexo')
-        st.pyplot(fig, use_container_width=True)
+if opcao_sexo == "Geral":
+    titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>Geral</b></p>'
+    st.markdown(titulo_plot01, unsafe_allow_html=True)
+    sexo_feminino = docentes_df['QT_DOC_EX_FEMI']
+    sexo_masculino = docentes_df['QT_DOC_EX_MASC']
+    labels = ['Feminino', 'Masculino']
+    sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
+    colors = ['pink', 'lightblue']
+    explode = (0.1, 0)
+    fig, ax = plt.subplots(figsize=(3, 3))
+    ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+    ax.axis('equal')
+    st.pyplot(fig, use_container_width=True)
 
-    elif opcao_sexo == "IES Privadas":
-        titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES privadas</b></p>'
-        st.markdown(titulo_plot01, unsafe_allow_html=True)
-        categorias_interesse = [4, 5, 6]
-        docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
-        sexo_feminino = docentes_interesse['QT_DOC_EX_FEMI']
-        sexo_masculino = docentes_interesse['QT_DOC_EX_MASC']
-        labels = ['Feminino', 'Masculino']
-        sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
-        colors = ['pink', 'lightblue']
-        fig, ax = plt.subplots(figsize=(3, 3))
-        explode = (0.1, 0)
-        plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
-        plt.axis('equal')
-        st.pyplot(fig, use_container_width=True)
+elif opcao_sexo == "IES Privadas":
+    titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES privadas</b></p>'
+    st.markdown(titulo_plot01, unsafe_allow_html=True)
+    categorias_interesse = [4, 5, 6]
+    docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
+    sexo_feminino = docentes_interesse['QT_DOC_EX_FEMI']
+    sexo_masculino = docentes_interesse['QT_DOC_EX_MASC']
+    labels = ['Feminino', 'Masculino']
+    sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
+    colors = ['pink', 'lightblue']
+    fig, ax = plt.subplots(figsize=(3, 3))
+    explode = (0.1, 0)
+    plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+    plt.axis('equal')
+    st.pyplot(fig, use_container_width=True)
     
-    elif opcao_sexo == "IES Públicas":
-        titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES públicas</b></p>'
-        st.markdown(titulo_plot01, unsafe_allow_html=True)
-        categorias_interesse = [1, 2, 3]
-        docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
-        sexo_feminino = docentes_interesse['QT_DOC_EX_FEMI']
-        sexo_masculino = docentes_interesse['QT_DOC_EX_MASC']
-        labels = ['Feminino', 'Masculino']
-        sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
-        colors = ['pink', 'lightblue']
-        explode = (0.1, 0)
-        fig, ax = plt.subplots(figsize=(3, 3))
-        plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
-        plt.axis('equal')
-        st.pyplot(fig, use_container_width=True)
+elif opcao_sexo == "IES Públicas":
+    titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES públicas</b></p>'
+    st.markdown(titulo_plot01, unsafe_allow_html=True)
+    categorias_interesse = [1, 2, 3]
+    docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
+    sexo_feminino = docentes_interesse['QT_DOC_EX_FEMI']
+    sexo_masculino = docentes_interesse['QT_DOC_EX_MASC']
+    labels = ['Feminino', 'Masculino']
+    sizes = [sexo_feminino.sum(), sexo_masculino.sum()]
+    colors = ['pink', 'lightblue']
+    explode = (0.1, 0)
+    fig, ax = plt.subplots(figsize=(3, 3))
+    plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+    plt.axis('equal')
+    st.pyplot(fig, use_container_width=True)
 
-# Verificar se o botão de atualização foi pressionado e, em seguida, criar e exibir o gráfico
-if botao_atualizar:
-    criar_e_exibir_grafico()
+
+st.caption('Podemos observar que há uma prevalência de docentes do sexo mascullino em relação a docentes do sexo feminino. Essa prevalência é mais observada nas IES públicas, na qual 55,3% dos docentes são homens. Nas IES privadas, embora a maioria ainda seja do sexo masculino, essa diferença é menor e as mulheres correspondem a 49,7% do total de docentes.')
+
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -114,7 +111,7 @@ with col1:
     st.markdown(label01, unsafe_allow_html=True)
     
 with col2:
-    opcao_estudo = st.selectbox("Selecione a categoria:", options=["Geral", "IES Públicas", "IES Privadas"], label_visibility="collapsed")
+    opcao_estudo = st.selectbox("Selecione a categoria:", options=["Geral", "IES Públicas", "IES Privadas"],key='opcao_estudo', label_visibility="collapsed")
     
 with col3:
     st.subheader(':school:')
@@ -153,6 +150,9 @@ elif opcao_estudo == "IES Privadas":
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
+
+    
+st.caption('Podemos observar que nas IES públicas, a maioria dos docentes possuem doutorado. Já nas IES privadas, o maior percentual de nível de estudo é mestrado.')
     
 st.markdown("---")
 
@@ -211,6 +211,8 @@ elif opcao_idade == "IES Privadas":
     plt.xticks(rotation=45)
     st.pyplot(fig, use_container_width=True)
 
+st.caption('Observa-se que nas IES privadas a proporção de docentes mais novos (até 39 anos) é maior do que em relação às IES públicas. Nos dois casos, o maior percentual de docentes tem entre 40 - 44 anos') 
+           
 st.markdown("---")
 
 
@@ -293,6 +295,8 @@ elif opcao_raca == "IES Privadas":
     ax.set_ylabel('Porcentagem de Docentes (%)')
     st.pyplot(fig, use_container_width=True)
 
+st.caption('O percentual de docentes brancos é maior nos dois casos. Nas IES há uma alta taxa de não declarados.') 
+           
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -304,20 +308,52 @@ st.markdown(titulo_plot01, unsafe_allow_html=True)
 jornada_columns = ['QT_DOC_EX_INT_DE', 'QT_DOC_EX_INT_SEM_DE', 'QT_DOC_EX_PARC', 'QT_DOC_EX_HOR']
 jornada_labels = ['Integral com Dedicação Exclusiva', 'Integral sem Dedicação Exclusiva', 'Parcial', 'Horista']
 
-# soma para cada categoria
-somas_jornada = docentes_df[jornada_columns].sum()
+# caixa de seleção
+col1, col2, col3 = st.columns(3)
+with col1:
+    label01 = '<p style="font-family:Courier; color:#992600; font-size: 20px;"><b>Selecione uma categoria específica:</b></p>'
+    st.markdown(label01, unsafe_allow_html=True)
+    
+with col2:
+    opcao_jornada = st.selectbox("Selecione a categoria:", options=["Geral", "IES Privadas", "IES Públicas"], key='opcao_jornada', label_visibility="collapsed")
+    
+with col3:
+    st.subheader(':school:')
 
-# ordem decrescente
-somas_jornada, jornada_labels = zip(*sorted(zip(somas_jornada, jornada_labels), reverse=True))
 
-# Gráfico de barras horizontais
-fig, ax = plt.subplots(figsize=(10, 3))
-ax.barh(jornada_labels, somas_jornada)
-ax.set_ylabel('Jornada de Trabalho')
-ax.set_xlabel('Quantidade de Docentes')
-ax.set_title('Quantidade de Docentes por Jornada de Trabalho (Ordem Decrescente)')
+if opcao_jornada == "Geral":
+    somas_jornada = docentes_df[jornada_columns].sum()
+    somas_jornada, jornada_labels = zip(*sorted(zip(somas_jornada, jornada_labels), reverse=True))
+    fig, ax = plt.subplots(figsize=(10, 3))
+    ax.barh(jornada_labels, somas_jornada)
+    ax.set_ylabel('Jornada de Trabalho')
+    ax.set_xlabel('Quantidade de Docentes')
+    ax.set_title('Quantidade de Docentes por Jornada de Trabalho')
+    st.pyplot(fig, use_container_width=True)
 
-st.pyplot(fig, use_container_width=True)
+elif opcao_jornada == "IES Públicas":
+    categorias_interesse = [1, 2, 3]
+    docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
+    somas_jornada = docentes_interesse[jornada_columns].sum()
+    somas_jornada, jornada_labels = zip(*sorted(zip(somas_jornada, jornada_labels), reverse=True))
+    fig, ax = plt.subplots(figsize=(10, 3))
+    ax.barh(jornada_labels, somas_jornada)
+    ax.set_ylabel('Jornada de Trabalho')
+    ax.set_xlabel('Quantidade de Docentes')
+    st.pyplot(fig, use_container_width=True)
+
+elif opcao_jornada == "IES Privadas":
+    categorias_interesse = [4, 5, 6]
+    docentes_interesse = docentes_df[docentes_df['TP_CATEGORIA_ADMINISTRATIVA'].isin(categorias_interesse)]
+    somas_jornada = docentes_interesse[jornada_columns].sum()
+    somas_jornada, jornada_labels = zip(*sorted(zip(somas_jornada, jornada_labels), reverse=True))
+    fig, ax = plt.subplots(figsize=(10, 3))
+    ax.barh(jornada_labels, somas_jornada)
+    ax.set_ylabel('Jornada de Trabalho')
+    ax.set_xlabel('Quantidade de Docentes')
+    st.pyplot(fig, use_container_width=True)
+
+st.caption('Nas IES particulares, a maioria dos docentes têm uma jornada de trabalho parcial ou como horista. Já nas IES públicas, a maioria possui carga horária integral com dedicação exclusiva')
 
 st.markdown("---")
 
@@ -346,6 +382,6 @@ ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', 
 ax.axis('equal')
 st.pyplot(fig, use_container_width=True)
 
-
-
+st.caption('Observa-se que os docentes com deficiência representam apenas 0,4% do total')
+st.markdown("---")
 
