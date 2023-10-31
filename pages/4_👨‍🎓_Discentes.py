@@ -8,19 +8,22 @@ import plotly
 import plotly.express as px
 import streamlit as st
 
-# ------------------------------------------------------------------------
-# PARTE 01 - Evolução das Matriculas - Brasil
-# ------------------------------------------------------------------------
 
 st.set_page_config(page_title='Analise Discentes', 
                     page_icon=':student:', 
 				    layout='wide', 
                     initial_sidebar_state='expanded')
+
                     
-                    
-st.title(':chart_with_upwards_trend: :student: Evolução das Matrículas :flag-br:')
-st.subheader('Escopo: Cursos Presenciais de Federais Públicas e Privadas')
+st.title(':bar_chart: Análise Discentes :male-student: :female-student: ')
+st.subheader('Escopo: Matrículas, Ingressantes e Concluintes')
 st.subheader("Dados de 2012-2022")
+st.markdown("---")  
+
+# ------------------------------------------------------------------------
+# PARTE 01 - Evolução das Matriculas - Brasil
+# ------------------------------------------------------------------------
+st.title(':chart_with_upwards_trend: :adult: :books: Evolução das Matrículas :flag-br:')
 st.markdown("---")         
 
 # ------------------------------------------------------------------------
@@ -42,7 +45,9 @@ def carrega_df():
                         'Tipo_Cat_Admn','Tipo_Org_Acad','Tipo_Org_Principal', 'Tipo_Grau_Acad','Tipo_Rede',
 						'NO_CINE_AREA_GERAL', 'NO_CURSO','QT_CURSO','QT_MAT','QT_ING','QT_CONC','TIPO_INST',
                         'QT_MAT_0_17', 'QT_MAT_18_24', 'QT_MAT_25_29', 'QT_MAT_30_34',
-                        'QT_MAT_35_39', 'QT_MAT_40_49', 'QT_MAT_50_59', 'QT_MAT_60_MAIS'
+                        'QT_MAT_35_39', 'QT_MAT_40_49', 'QT_MAT_50_59', 'QT_MAT_60_MAIS',
+                        'QT_ING_0_17', 'QT_ING_18_24', 'QT_ING_25_29', 'QT_ING_30_34','QT_ING_35_39', 'QT_ING_40_49', 'QT_ING_50_59', 'QT_ING_60_MAIS',
+                        'QT_CONC_0_17', 'QT_CONC_18_24', 'QT_CONC_25_29', 'QT_CONC_30_34','QT_CONC_35_39', 'QT_CONC_40_49', 'QT_CONC_50_59', 'QT_CONC_60_MAIS'
                         ])
 	return df_all
 df_all = carrega_df()	
@@ -144,8 +149,6 @@ axes.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shad
 st.pyplot(f)
 st.markdown("---")
 
-
-
 # ------------------------------------------------------------------------				  
 # Plot02:  Evolução da Qtd Matriculas Presenciais por Ano/ Grau Academico (linha)
 # ------------------------------------------------------------------------
@@ -208,10 +211,8 @@ st.markdown("---")
 # ------------------------------------------------------------------------
 # PARTE 02 - Evolução das Matriculas - UFs
 # ------------------------------------------------------------------------
-                    
-st.title(':chart_with_upwards_trend: :student: Evolução das Matrículas :classical_building:')
-st.subheader('Escopo: Cursos Presenciais de Federais Públicas e Privadas')
-st.subheader("Dados de 2012-2022")
+st.title(':chart_with_upwards_trend: :adult: :books: Evolução das Matrículas nos Estados :classical_building:')
+
 st.markdown("---")       
 
 
@@ -276,9 +277,6 @@ if ano_selecionado:
     ax2.legend(lines1 + lines2, labels1 + labels2, loc="upper center", fontsize=18)    
     st.pyplot(f)
     
-    
- 
-
 # para mostrar todos os anos
 # for ano in range(2012, 2023, 1): # a = para cada ano 
     # data = distr_matr_uf_re[distr_matr_uf_re['NU_ANO_CENSO']==ano].sort_values(by='SG_UF', ascending=True)
@@ -305,9 +303,172 @@ if ano_selecionado:
     # lines2, labels2 = ax2.get_legend_handles_labels()
     # ax2.legend(lines1 + lines2, labels1 + labels2, loc="upper center", fontsize=18)    
     # st.pyplot(f)
-
     
+    
+st.markdown("---")   
+    
+# ------------------------------------------------------------------------
+# PARTE 03 - Evolução dos Ingressantes 
+# ------------------------------------------------------------------------
+st.title(':chart_with_upwards_trend: :adult: :sparkles: Evolução dos Ingressantes :flag-br:')
+st.markdown("---")       
 
-                          
-                                            
-                                            
+# ------------------------------------------------------------------------				  
+# Plot01: Evolução da Qtd Ingressantes Presenciais por Ano/ Rede Ensino (linha)
+# ------------------------------------------------------------------------
+titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Ingressantes PRESENCIAIS por Rede de Ensino</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'TIPO_INST'
+col_soma = 'QT_ING'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)                                            
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot02:  Evolução da Qtd Ingressantes Presenciais por Ano/ Grau Academico (linha)
+# ------------------------------------------------------------------------
+titulo_plot02 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Ingressantes PRESENCIAIS por Grau Academico</b></p>'
+st.markdown(titulo_plot02, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Tipo_Grau_Acad' 
+col_soma = 'QT_ING'
+legenda_outside='N'
+
+f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot03:  Evolução da Qtd Ingressantes Presenciais por Ano/ Area Curso (linha)
+# ------------------------------------------------------------------------
+titulo_plot03 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Ingressantes PRESENCIAIS por Area Geral do Curso</b></p>'
+st.markdown(titulo_plot03, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'NO_CINE_AREA_GERAL'
+col_soma = 'QT_ING'
+legenda_outside = 'S'
+
+# retirar area especifica: Programas básicos
+df_areas = df_all[~df_all['NO_CINE_AREA_GERAL'].isin(['Programas básicos'])]
+
+f = gerar_plot_evol_ano(df_areas, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")                                         
+                               
+# ------------------------------------------------------------------------				  
+# Plot04:  Evolução da Qtd Ingressantes Presenciais por Ano/ Faixa Idade (linha)
+# ------------------------------------------------------------------------    
+# Preparar dados     
+serie_ingr_faixas_t1 = df_all.melt(id_vars=['NU_ANO_CENSO','CO_IES','NO_CURSO','QT_ING'], var_name='Faixa_etaria', 
+                                   value_name = 'Total_Ingress',
+                                   value_vars=['QT_ING_0_17', 'QT_ING_18_24', 'QT_ING_25_29', 'QT_ING_30_34',
+                                               'QT_ING_35_39', 'QT_ING_40_49', 'QT_ING_50_59', 'QT_ING_60_MAIS'])
+
+serie_ingr_faixas_t2 = serie_ingr_faixas_t1.groupby(['NU_ANO_CENSO', 'CO_IES','NO_CURSO','QT_ING','Faixa_etaria'])['Total_Ingress']\
+.sum().reset_index()
+
+serie_ingr_faixas = serie_ingr_faixas_t2.groupby(['NU_ANO_CENSO','Faixa_etaria'])['Total_Ingress'].sum().reset_index()
+
+# Exibir plot
+titulo_plot04 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Ingressantes PRESENCIAIS por Faixa de Idade</b></p>'
+st.markdown(titulo_plot04, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total_Ingress'
+legenda_outside = 'S'
+
+f = gerar_plot_evol_ano(serie_ingr_faixas, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+                      
+                      
+# ------------------------------------------------------------------------
+# PARTE 04 - Evolução dos Concluintes 
+# ------------------------------------------------------------------------
+st.title(':chart_with_upwards_trend: :student: Evolução dos Concluintes :flag-br:')
+st.markdown("---")     
+
+# ------------------------------------------------------------------------				  
+# Plot01: Evolução da Qtd Concluintes Presenciais por Ano/ Rede Ensino (linha)
+# ------------------------------------------------------------------------
+
+titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Concluintes PRESENCIAIS por Rede de Ensino</b></p>'
+st.markdown(titulo_plot01, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'TIPO_INST' 
+col_soma = 'QT_CONC'
+legenda_outside = 'N'
+
+f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot02:  Evolução da Qtd Concluintes Presenciais por Ano/ Grau Academico (linha)
+# ------------------------------------------------------------------------
+titulo_plot02 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Concluintes PRESENCIAIS por Grau Academico</b></p>'
+st.markdown(titulo_plot02, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Tipo_Grau_Acad' 
+col_soma = 'QT_CONC'
+legenda_outside='N'
+
+f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+# ------------------------------------------------------------------------				  
+# Plot03:  Evolução da Qtd Concluintes Presenciais por Ano/ Area Curso (linha)
+# ------------------------------------------------------------------------
+titulo_plot03 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Concluintes PRESENCIAIS por Area Geral do Curso</b></p>'
+st.markdown(titulo_plot03, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'NO_CINE_AREA_GERAL'
+col_soma = 'QT_CONC'
+legenda_outside = 'S'
+
+# retirar area especifica: Programas básicos
+df_areas = df_all[~df_all['NO_CINE_AREA_GERAL'].isin(['Programas básicos'])]
+
+f = gerar_plot_evol_ano(df_areas, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")   
+
+# ------------------------------------------------------------------------				  
+# Plot04:  Evolução da Qtd Concluintes Presenciais por Ano/ Faixa Idade (linha)
+# ------------------------------------------------------------------------    
+# Preparar dados  
+serie_concl_faixas_t1 = df_all.melt(id_vars=['NU_ANO_CENSO','CO_IES','NO_CURSO','QT_CONC'], 
+                                   var_name='Faixa_etaria', 
+                                   value_name = 'Total_Concl',
+                                   value_vars=['QT_CONC_0_17', 'QT_CONC_18_24', 'QT_CONC_25_29', 'QT_CONC_30_34','QT_CONC_35_39', 'QT_CONC_40_49', 'QT_CONC_50_59', 'QT_CONC_60_MAIS'])
+serie_concl_faixas_t2 = serie_concl_faixas_t1.groupby(['NU_ANO_CENSO', 'CO_IES','NO_CURSO','QT_CONC','Faixa_etaria'])['Total_Concl']\
+.sum().reset_index()
+
+serie_concl_faixas = serie_concl_faixas_t2.groupby(['NU_ANO_CENSO','Faixa_etaria'])['Total_Concl'].sum().reset_index()
+
+# Exibir plot
+titulo_plot04 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Visualização da Evolução da Qtd de Concluintes PRESENCIAIS por Faixa de Idade</b></p>'
+st.markdown(titulo_plot04, unsafe_allow_html=True)
+
+col_ano = 'NU_ANO_CENSO'
+col_grupo = 'Faixa_etaria'
+col_soma = 'Total_Concl'
+legenda_outside = 'S'
+
+f = gerar_plot_evol_ano(serie_concl_faixas, col_ano, col_grupo, col_soma, legenda_outside)
+st.pyplot(f)
+st.markdown("---")
+
+
+                   
