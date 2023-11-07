@@ -181,6 +181,7 @@ with col3:
                         legend=dict(x=0.1,y=-0.30, font = dict(size = 18)), 
                        hoverlabel=dict(bgcolor="white", font_size=16, font_family="Rockwell"))				     
     st.plotly_chart(fig1, use_container_width=True)	
+    plt.close()
 
 with col4:      
     titulo_plot03 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Técnicos Administrativos por Sexo e Escolaridade - Evolução</b></p>'
@@ -194,6 +195,7 @@ with col4:
                         legend=dict(x=0.1,y=-0.40, font = dict(size = 18)), 
                        hoverlabel=dict(bgcolor="white", font_size=16, font_family="Rockwell"))				  
     st.plotly_chart(fig3, use_container_width=True)	
+    plt.close()
     
 
 st.subheader("Principais Resultados")

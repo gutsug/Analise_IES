@@ -175,6 +175,7 @@ with col1:
 	fig.update_traces(textposition='inside', insidetextfont=dict(color='white', size=16,family='Times New Roman'))
 
 	st.plotly_chart(fig, use_container_width=True)
+    plt.close()
 
 
 # ------------------------------------------------------------------------
@@ -208,6 +209,7 @@ with col2:
 	fig.update_traces(textposition='inside', insidetextfont=dict(color='white', size=16,family='Times New Roman'))
 	
 	st.plotly_chart(fig, use_container_width=True)
+    plt.close()
 
 # ------------------------------------------------------------------------
 # Plot03: Análise
@@ -248,6 +250,7 @@ fig.update_xaxes(tickangle=0)
 fig.update_traces(textposition='inside', insidetextfont=dict(color='white', size=16,family='Times New Roman'))
 
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 st.markdown("---")	
 
 # ------------------------------------------------------------------------
@@ -407,6 +410,7 @@ if ano_selecionado:
     fig.update_traces(textposition='middle left', textfont_size=18)
     
     st.plotly_chart(fig, use_container_width=True)
+    plt.close()
     
 # ------------------------------------------------------------------------
 # Plot01: Análise
@@ -616,6 +620,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_family="Rockwell"))				  
 
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 
 # ------------------------------------------------------------------------
 # Plot02: Análise
@@ -652,6 +657,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_family="Rockwell"))
 				  
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 st.markdown("---")
 
 
@@ -681,6 +687,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_family="Rockwell"))
 				  
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -708,6 +715,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_family="Rockwell"))				  
 
 st.plotly_chart(fig, use_container_width=True)		
+plt.close()
 
 # ------------------------------------------------------------------------
 # Plot05: Análise
@@ -787,26 +795,31 @@ with col1:
 	titulo_plot06a =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Regiao Nordeste</b></p>'
 	st.markdown(titulo_plot06a, unsafe_allow_html=True)
 	st.plotly_chart(fig_NE, use_container_width=True)
+    plt.close()
 
 with col2: 
 	titulo_plot06b =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Regiao Norte</b></p>'
 	st.markdown(titulo_plot06b, unsafe_allow_html=True)
 	st.plotly_chart(fig_N, use_container_width=True)
+    plt.close()
 
 col1, col2 = st.columns(2)
 with col1: 
 	titulo_plot06c =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Regiao Sul</b></p>'
 	st.markdown(titulo_plot06c, unsafe_allow_html=True)
 	st.plotly_chart(fig_S, use_container_width=True)
+    plt.close()
 
 with col2: 
 	titulo_plot06d =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Regiao Centro-Oeste</b></p>'
 	st.markdown(titulo_plot06d, unsafe_allow_html=True)
 	st.plotly_chart(fig_CO, use_container_width=True)
+    plt.close()
 
 titulo_plot06e =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Regiao Sudeste</b></p>'
 st.markdown(titulo_plot06e, unsafe_allow_html=True)
 st.plotly_chart(fig_SE, use_container_width=True)
+plt.close()
 
 # ------------------------------------------------------------------------
 # Plot07: Análise

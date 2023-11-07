@@ -203,6 +203,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_family="Rockwell"))	
 
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 st.markdown("---")                 
 
 # -----------------------------------------------------------------------------------
@@ -226,6 +227,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))	
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 
 # -------------------
 # Analise
@@ -258,6 +260,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))	
 st.plotly_chart(fig, use_container_width=True) 
+plt.close()
 
 # -------------------
 # Analise
@@ -289,6 +292,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 
 # -------------------
 # Analise
@@ -321,6 +325,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
              
 # -------------------
 # Analise
@@ -362,6 +367,7 @@ with col1:
     fig.update_layout(plot_bgcolor='#dbe0f0') 
     fig.update_layout(hoverlabel=dict(bgcolor="white", font_size=22,font_family="Rockwell"))
     st.plotly_chart(fig, use_container_width=True)
+    plt.close()
 
 with col2:
     fig = px.bar(distr_ies_tp_regiao.sort_values(by='Total_IES_p', ascending=False),
@@ -380,6 +386,7 @@ with col2:
     fig.update_layout(showlegend=False)
     fig.update_layout(hoverlabel=dict(bgcolor="white", font_size=22,font_family="Rockwell"))
     st.plotly_chart(fig, use_container_width=True)
+    plt.close()
 
 # -------------------
 # Analise
@@ -413,6 +420,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 st.markdown("---")
 
 # -----------------------------------------------------------------------------------
@@ -435,6 +443,7 @@ fig.update_layout(hoverlabel=dict(bgcolor="white",
                                   font_size=22,
                                   font_family="Rockwell"))
 st.plotly_chart(fig, use_container_width=True)
+plt.close()
 
 
 # -------------------

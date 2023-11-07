@@ -63,7 +63,7 @@ df_all = carrega_df()
 def gerar_plot_evol_ano(df, col_ano, col_grupo, col_soma, legenda_outside):
 
     # exibe primeiros registros do df
-    print('Exibindo alguns registros do df consolidado...\n')
+    #print('Exibindo alguns registros do df consolidado...\n')
     df_plot = df.groupby([col_ano, col_grupo])[col_soma].sum().reset_index().rename(columns={col_soma:'Total'})
     #display(df_plot.head(5))
     
@@ -691,6 +691,7 @@ if area_selecionada:
     fig.update_layout(plot_bgcolor='#dbe0f0') 
     
     st.plotly_chart(fig, use_container_width=True)
+    plt.close()
 
 
     
