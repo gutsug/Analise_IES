@@ -144,6 +144,7 @@ with col1:
            fontsize='x-large')
 
     st.pyplot(fig)
+    plt.close()
 
 with col2:    
     titulo_plot01 =  '<p style="font-family:Courier; color:Black; font-size: 23px;"><b>Relação Técnico Administrativos por Discentes Matriculados por Categoria - Evolução</b></p>'
@@ -163,6 +164,7 @@ with col2:
            fontsize='x-large')
 
     st.pyplot(fig)
+    plt.close()
 
 # Cria as colunas
 col3,col4 = st.columns(2)    

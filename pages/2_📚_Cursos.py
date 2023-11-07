@@ -129,6 +129,7 @@ axes.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shad
            fontsize='x-large')
 
 st.pyplot(f)
+plt.close()
 
 # ------------------------------------------------------------------------
 # Plot01: Análise
@@ -290,6 +291,7 @@ axes.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shad
            fontsize='x-large')
 		   
 st.pyplot(f)
+plt.close()
 st.markdown("---")		   
 
 # ------------------------------------------------------------------------
@@ -587,6 +589,7 @@ with col2:
 	titulo_plot01 =  '<p style="text-align: center; font-family:Courier; color:Blue; font-size: 20px;"><b>Top 10 cursos presenciais (quantidade)</b></p>'
 	st.markdown(titulo_plot01, unsafe_allow_html=True)
 	st.pyplot(fig, use_container_width=True)
+    plt.close()
 	
 # ------------------------------------------------------------------------
 # Plot01: Análise

@@ -152,6 +152,7 @@ axes.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), fancybox=True, shad
            fontsize='x-large')
 
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -167,6 +168,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)                                            
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 
@@ -184,6 +186,7 @@ legenda_outside = 'S'
 df_areas = df_all[~df_all['NO_CINE_AREA_GERAL'].isin(['Programas básicos'])]
 f = gerar_plot_evol_ano(df_areas, col_ano, col_grupo, col_soma, legenda_outside)                                            
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -210,6 +213,7 @@ legenda_outside = 'S'
 
 f = gerar_plot_evol_ano(serie_matr_faixas, col_ano, col_grupo, col_soma, legenda_outside)                                            
 st.pyplot(f)
+plt.close()
 st.markdown("---")
                       
 
@@ -281,6 +285,7 @@ if ano_selecionado:
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax2.legend(lines1 + lines2, labels1 + labels2, loc="upper center", fontsize=18)    
     st.pyplot(f)
+    plt.close()
     
 # para mostrar todos os anos
 # for ano in range(2012, 2023, 1): # a = para cada ano 
@@ -331,6 +336,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)                                            
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -346,6 +352,7 @@ legenda_outside='N'
 
 f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -364,6 +371,7 @@ df_areas = df_all[~df_all['NO_CINE_AREA_GERAL'].isin(['Programas básicos'])]
 
 f = gerar_plot_evol_ano(df_areas, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")                                         
                                
 # ------------------------------------------------------------------------				  
@@ -391,6 +399,7 @@ legenda_outside = 'S'
 
 f = gerar_plot_evol_ano(serie_ingr_faixas, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
                       
                       
@@ -414,6 +423,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -429,6 +439,7 @@ legenda_outside='N'
 
 f = gerar_plot_evol_ano(df_all, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -447,6 +458,7 @@ df_areas = df_all[~df_all['NO_CINE_AREA_GERAL'].isin(['Programas básicos'])]
 
 f = gerar_plot_evol_ano(df_areas, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")   
 
 # ------------------------------------------------------------------------				  
@@ -473,6 +485,7 @@ legenda_outside = 'S'
 
 f = gerar_plot_evol_ano(serie_concl_faixas, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------
@@ -500,6 +513,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_0_17, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -520,6 +534,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_18_24, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -540,6 +555,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_25_29, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -560,6 +576,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_30_34, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -580,6 +597,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_35_39, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 # ------------------------------------------------------------------------				  
@@ -616,6 +634,7 @@ legenda_outside = 'N'
 
 f = gerar_plot_evol_ano(serie_acima40, col_ano, col_grupo, col_soma, legenda_outside)
 st.pyplot(f)
+plt.close()
 st.markdown("---")
 
 

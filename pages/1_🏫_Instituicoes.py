@@ -162,6 +162,7 @@ ax.tick_params(axis='x', labelsize=6)
 #ax.set_title('Mapa do Brasil com Instituições de Ensino Superior')
 ax.legend(loc='best', fontsize=8)
 st.pyplot(fig,  use_container_width=False)
+plt.close()
 
 # -------------------
 # Analise
@@ -514,6 +515,7 @@ for i, p in enumerate(axes.patches):
                      fontsize=16, weight='bold', color='#730099')
 
 st.pyplot(fig)
+plt.close()
 
 # -------------------
 # Analise
@@ -572,6 +574,7 @@ for i, j in zip(x, y):
 
     axes.legend(loc='best', fontsize=18)
 st.pyplot(f)
+plt.close()
 
 # -------------------
 # Analise
