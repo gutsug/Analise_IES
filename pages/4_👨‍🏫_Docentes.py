@@ -60,7 +60,6 @@ if opcao_sexo == "Geral":
     ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     ax.axis('equal')
     st.pyplot(fig, use_container_width=False)
-    plt.close()
 
 elif opcao_sexo == "IES Privadas":
     titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES privadas</b></p>'
@@ -77,7 +76,6 @@ elif opcao_sexo == "IES Privadas":
     plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     plt.axis('equal')
     st.pyplot(fig, use_container_width=False)
-    plt.close()
     
 elif opcao_sexo == "IES Públicas":
     titulo_plot01 = '<p style="font-family:Courier; color:blue; font-size: 25px;"><b>IES públicas</b></p>'
@@ -94,7 +92,6 @@ elif opcao_sexo == "IES Públicas":
     plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
     plt.axis('equal')
     st.pyplot(fig, use_container_width=False)
-    plt.close()
 
 
 # -------------------
@@ -133,7 +130,6 @@ if opcao_estudo == "Geral":
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
         
 elif opcao_estudo == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -146,7 +142,6 @@ elif opcao_estudo == "IES Públicas":
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_estudo == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -160,7 +155,6 @@ elif opcao_estudo == "IES Privadas":
     ax.set_xlabel('Nível de Estudo')
     ax.set_ylabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
     
 # -------------------
@@ -203,7 +197,6 @@ if opcao_idade == "Geral":
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_idade == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -215,7 +208,6 @@ elif opcao_idade == "IES Públicas":
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_idade == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -227,7 +219,6 @@ elif opcao_idade == "IES Privadas":
     ax.set_ylabel('Quantidade de Docentes')
     plt.xticks(rotation=45)
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 
 # -------------------
@@ -279,7 +270,6 @@ if opcao_raca == "Geral":
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_raca == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -299,7 +289,6 @@ elif opcao_raca == "IES Públicas":
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_raca == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -319,7 +308,6 @@ elif opcao_raca == "IES Privadas":
     ax.set_xlabel('Raça/Cor')
     ax.set_ylabel('Porcentagem de Docentes (%)')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
     
 # -------------------
@@ -361,7 +349,6 @@ if opcao_jornada == "Geral":
     ax.set_xlabel('Quantidade de Docentes')
     ax.set_title('Quantidade de Docentes por Jornada de Trabalho')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_jornada == "IES Públicas":
     categorias_interesse = [1, 2, 3]
@@ -373,7 +360,6 @@ elif opcao_jornada == "IES Públicas":
     ax.set_ylabel('Jornada de Trabalho')
     ax.set_xlabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
 elif opcao_jornada == "IES Privadas":
     categorias_interesse = [4, 5, 6]
@@ -385,7 +371,6 @@ elif opcao_jornada == "IES Privadas":
     ax.set_ylabel('Jornada de Trabalho')
     ax.set_xlabel('Quantidade de Docentes')
     st.pyplot(fig, use_container_width=True)
-    plt.close()
 
     
 # -------------------
@@ -420,7 +405,6 @@ fig, ax = plt.subplots(figsize=(2,2))
 ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
 ax.axis('equal')
 st.pyplot(fig, use_container_width=False)
-plt.close()
 
 # -------------------
 # Analise
