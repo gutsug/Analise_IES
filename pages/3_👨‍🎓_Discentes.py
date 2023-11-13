@@ -54,11 +54,28 @@ def carrega_disc_ano_uf_area():
     low_memory=False)
     return disc_ano_uf_area
 
+    
+# Vagas e Ingressantes por Area Geral/ Sexo por Ano    
+# tab 05
+@st.cache_data	
+def carrega_distr_vag_ingr_sexo():
+    distr_vag_ingr_sexo = pd.read_csv('./arquivos/distr_vag_ingr_sexo.csv', sep='|',
+    low_memory=False)
+    return distr_vag_ingr_sexo
+    
+# Vagas e Ingressantes por Area Geral/ Sexo por Ano    
+# tab 05
+@st.cache_data	
+def carrega_distr_vag_ingr_sexo_uf():
+    distr_vag_ingr_sexo_uf = pd.read_csv('./arquivos/distr_vag_ingr_sexo_uf.csv', sep='|',
+    low_memory=False)
+    return distr_vag_ingr_sexo_uf    
 
 # matriculas, ingressantes e concluintes     
+@st.cache_data	
 def gerar_plot_evol_ano(df, col_ano, col_grupo, col_soma, legenda_outside):
     # exibe primeiros registros do df
-    print('Exibindo alguns registros do df consolidado...\n')
+    #print('Exibindo alguns registros do df consolidado...\n')
     df_plot = df.groupby([col_ano, col_grupo])[col_soma].sum().reset_index().rename(columns={col_soma:'Total'})
     #display(df_plot.head(5))
     ano_min = df_plot[col_ano].min()
@@ -106,7 +123,7 @@ sns.set(style="darkgrid")
 # Carrega dados 
 # ------------------------------------------------------------------------
 df_all = carrega_cursos_2012_2022()
-disc_ano_uf_area = carrega_disc_ano_uf_area()
+
 
 
 url = "https://raw.githubusercontent.com/jonates/opendata/master/arquivos_geoespaciais/unidades_da_federacao.json"
@@ -629,81 +646,94 @@ with t_faixas:
 # ------------------------------------------------------------------------				  
 # Tab 05: Visualização Vagas e Ingressantes por Area Geral/ Sexo por Ano
 # ------------------------------------------------------------------------ 
+# Carrega dataframes 
+distr_vag_ingr_sexo = carrega_distr_vag_ingr_sexo()
+distr_vag_ingr_sexo_uf = carrega_distr_vag_ingr_sexo_uf()
+lista_areas = list(distr_vag_ingr_sexo['NO_CINE_AREA_GERAL'].unique())
+lista_UF = list(distr_vag_ingr_sexo_uf['NO_UF'].unique())
+
 with t_vag_ing_sexo:
-    st.subheader(':school: :adult: :books: Vagas e Ingressantes por Sexo :flag-br:')
     
-    # PREPARA DADOS
-    distr_vag_ingr_sexo = df_all.groupby(['NU_ANO_CENSO', 'NO_CINE_AREA_GERAL']).agg ({
-                                                  'QT_VG_TOTAL':'sum',
-                                                  'QT_VG_TOTAL_DIURNO':'sum',
-                                                  'QT_VG_TOTAL_NOTURNO':'sum',
-                                                  'QT_INSCRITO_TOTAL':'sum',
-                                                  'QT_ING':'sum',
-                                                  'QT_ING_FEM':'sum',
-                                                  'QT_ING_MASC':'sum' })
-
-    distr_vag_ingr_sexo = distr_vag_ingr_sexo.reset_index().rename(columns={
-                                                                    'QT_VG_TOTAL':'Total_vagas',
-                                                                    'QT_VG_TOTAL_DIURNO':'Total_vag_d',
-                                                                    'QT_VG_TOTAL_NOTURNO':'Total_vagas_n',
-                                                                    'QT_INSCRITO_TOTAL':'Total_insc',
-                                                                    'QT_ING':'Total_ing',
-                                                                    'QT_ING_FEM':'Total_ing_f',
-                                                                    'QT_ING_MASC':'Total_ing_m'})
-
-                                                                    
-    distr_vag_ingr_sexo_melt = distr_vag_ingr_sexo.melt(
-        id_vars=['NU_ANO_CENSO','NO_CINE_AREA_GERAL'], 
-        value_vars=['Total_vagas','Total_vag_d','Total_vagas_n','Total_insc','Total_ing','Total_ing_f','Total_ing_m'],
-        var_name='Variavel_total',
-        value_name='Total')
-                                                                    
-    distr_vag_ingr_sexo_plot01 = distr_vag_ingr_sexo_melt[distr_vag_ingr_sexo_melt['Variavel_total'].\
-                                            isin(['Total_vagas','Total_ing_f','Total_ing_m'])]                                                                
     # ------------------------------------------------------------------------
     # Plot 01: Visualização Vagas e Ingressantes por Area Geral por Ano
     # ------------------------------------------------------------------------	
-    lista_areas = list(distr_vag_ingr_sexo_plot01['NO_CINE_AREA_GERAL'].unique())
-
+    st.subheader(':school: :adult: :books: Vagas e Ingressantes por Sexo :flag-br:')
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione uma area de conhecimento específica:</b></p>'
+        label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione uma area de conhecimento:</b></p>'
         st.markdown(label01, unsafe_allow_html=True) 
-        
     with col2:
         area_selecionada = st.selectbox(label="Selecione uma Area de conhecimento Geral específica:", options=lista_areas, label_visibility="collapsed")
-        
     with col3:    
-        st.subheader(':date:')
+        st.subheader(':books:')
 
     if area_selecionada:
         titulo_plot01 =  f'<p style="font-family:Courier; color:Blue; font-size: 16px;"><b>Vagas e Ingressantes para a Area Geral: {area_selecionada}</b></p>'
         st.markdown(titulo_plot01, unsafe_allow_html=True)    
-        
-        
-        dados1 = distr_vag_ingr_sexo_plot01[
-        (distr_vag_ingr_sexo_plot01['NO_CINE_AREA_GERAL']==area_selecionada)]
+        dados1 = distr_vag_ingr_sexo[
+        (distr_vag_ingr_sexo['NO_CINE_AREA_GERAL']==area_selecionada)]
         fig = px.bar(dados1,
                  y='Total', 
                  x='NU_ANO_CENSO', 
                  color='Variavel_total',
                  color_discrete_sequence=px.colors.qualitative.G10,
-                 barmode = 'group', width=1200, height=700)
-        fig.update_layout(yaxis=dict(title='Total'),
+                 barmode = 'group', width=1200, height=500)
+        fig.update_layout(yaxis=dict(title='Total', titlefont_size=18, tickfont_size=16),
         xaxis=dict(title='', tickfont_size=18),      
         legend=dict(x=0.03,y=0.96, font = dict(size = 18))) 
-        
         fig.update_layout(plot_bgcolor='#dbe0f0') 
-        
         st.plotly_chart(fig, use_container_width=True)
         plt.close()
+        
+    # ------------------------------------------------------------------------
+    # Plot 02: Visualização Vagas e Ingressantes por Area Geral por Ano
+    # Selecionar UF
+    # ------------------------------------------------------------------------	
+    st.markdown("---") 
+    st.subheader(':school: :adult: :books: Vagas e Ingressantes por Sexo - UF :classical_building:')        
     
-
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        label02 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione uma UF:</b></p>'
+        st.markdown(label02, unsafe_allow_html=True) 
+    with col2:
+        UF_selecionada = st.selectbox(label="Selecione uma UF:", options=lista_UF, label_visibility="collapsed")
+    with col3:    
+        st.subheader(':classical_building:')
+        
+    col4, col5, col6 = st.columns(3)
+    with col4:
+        label03 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione uma area de conhecimento:</b></p>'
+        st.markdown(label03, unsafe_allow_html=True) 
+    with col5:
+        area_selecionada2 = st.selectbox(label="Selecione uma Area de conhecimento Geral específica2:", options=lista_areas, label_visibility="collapsed")
+    with col6:    
+        st.subheader(':books:')
+    
+    if area_selecionada2 and UF_selecionada: 
+        titulo_plot02 =  f'<p style="font-family:Courier; color:Blue; font-size: 16px;"><b>Vagas e Ingressantes da UF {UF_selecionada} para a Area Geral: {area_selecionada2}</b></p>'
+        st.markdown(titulo_plot02, unsafe_allow_html=True)    
+        dados2 = distr_vag_ingr_sexo_uf[
+        (distr_vag_ingr_sexo_uf['NO_CINE_AREA_GERAL']==area_selecionada2) & 
+        (distr_vag_ingr_sexo_uf['NO_UF']==UF_selecionada)]        
+        fig2 = px.bar(dados2,
+                     y='Total', 
+                     x='NU_ANO_CENSO', 
+                     color='Variavel_total',
+                     hover_data = {'NO_UF', 'Variavel_total', 'Total'},
+                     color_discrete_sequence=px.colors.qualitative.G10,
+                     barmode = 'group', width=1200, height=500)
+        fig2.update_layout(yaxis=dict(title='Total', titlefont_size=18, tickfont_size=16),
+                          xaxis=dict(title='', tickfont_size=18),      
+                          legend=dict(x=0.03,y=0.96, font = dict(size = 18))) 
+        fig2.update_layout(plot_bgcolor='#dbe0f0')
+        st.plotly_chart(fig2, use_container_width=True)
+        plt.close()
+        
 # ------------------------------------------------------------------------				  
 # Tab 06: 
 # ------------------------------------------------------------------------    
-
+disc_ano_uf_area = carrega_disc_ano_uf_area()
 l_var = ['Total vagas', 'Total inscritos', 'Total ingressantes', 'Total matrículas', 'Total concluintes']
 l_cursos = sorted(list(disc_ano_uf_area['NO_CINE_AREA_GERAL'].unique()))
 

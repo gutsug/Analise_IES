@@ -39,20 +39,24 @@ sns.set(style="darkgrid")
 
 
 # ------------------------------------------------------------------------
-# Carrega dados IES
+# Funções para Carregar dados 
 # ------------------------------------------------------------------------
-colunas_CO = ['CO_REGIAO_IES',  'CO_UF_IES', 'CO_MESORREGIAO_IES', 'CO_MICRORREGIAO_IES',
- 'CO_MANTENEDORA', 'CO_IES', 'COD_IBGE', 'IN_CAPITAL_IES', 'NU_CEP_IES']
-dict_dtype = {column : 'str'  for column in colunas_CO}
-ies = pd.read_csv('./arquivos/dados_ies_consolidado.csv', sep='|', dtype = dict_dtype, low_memory=False)
 
-# ------------------------------------------------------------------------
-# Carrega dados IES agregados por UF
-# ------------------------------------------------------------------------
-ies_agg_UF = pd.read_csv('./arquivos/dados_IES_agg_UF.csv', sep='|', 
+# dados IES
+@st.cache_data
+def carrega_ies():
+    colunas_CO = ['CO_REGIAO_IES',  'CO_UF_IES', 'CO_MESORREGIAO_IES', 'CO_MICRORREGIAO_IES',
+    'CO_MANTENEDORA', 'CO_IES', 'COD_IBGE', 'IN_CAPITAL_IES', 'NU_CEP_IES']
+    dict_dtype = {column : 'str'  for column in colunas_CO}
+    ies = pd.read_csv('./arquivos/dados_ies_consolidado.csv', sep='|', dtype = dict_dtype, low_memory=False)
+    return ies
+
+# dados IES agregados por UF
+@st.cache_data
+def carrega_ies_agg_UF():
+    ies_agg_UF = pd.read_csv('./arquivos/dados_IES_agg_UF.csv', sep='|', 
                    low_memory=False)
-
-ies_agg_UF = ies_agg_UF.rename(columns={'Total_mun':'Total_mun_IES',
+    ies_agg_UF = ies_agg_UF.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Total_Pop_IES':'Total_Pop_UF_IES',
                                         'Total_Pop_IBGE_2022':'Total_Pop_UF',
                                         'Total_Mun_IBGE_2022':'Total_Mun_UF',
@@ -62,16 +66,17 @@ ies_agg_UF = ies_agg_UF.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Cob_Meso':'Cob_Meso_com_IES',
                                         'Cob_Micro':'Cob_Micro_com_IES'})
 
-ies_agg_UF = ies_agg_UF[['SG_UF_IES', 'Total_Pop_UF', 'Total_Mun_UF', 'Total_Meso_UF', 'Total_Micro_UF','Total_IES', 'Total_Priv', 'Total_Publ','Total_mun_IES', 'Total_Pop_UF_IES','Total_Meso_IES','Total_Micro_IES','Cob_Mun_com_IES','Cob_Meso_com_IES','Cob_Micro_com_IES']]
-
-                         
-#--------------------------------------------------------------------------------------------
-# Carrega dados IES agregados por Região
-#------------------------------------------------------------------------------------------
-ies_agg_regiao = pd.read_csv('./arquivos/dados_IES_agg_Regiao.csv', sep='|', 
+    ies_agg_UF = ies_agg_UF[['SG_UF_IES', 'Total_Pop_UF', 'Total_Mun_UF', 'Total_Meso_UF', 'Total_Micro_UF','Total_IES', 'Total_Priv', 'Total_Publ','Total_mun_IES', 'Total_Pop_UF_IES','Total_Meso_IES','Total_Micro_IES','Cob_Mun_com_IES','Cob_Meso_com_IES','Cob_Micro_com_IES']]
+    return ies_agg_UF
+    
+    
+    
+# dados IES agregados por Região    
+@st.cache_data
+def carrega_ies_agg_regiao():
+    ies_agg_regiao = pd.read_csv('./arquivos/dados_IES_agg_Regiao.csv', sep='|', 
                    low_memory=False)
-
-ies_agg_regiao = ies_agg_regiao.rename(columns={'Total_mun':'Total_mun_IES',
+    ies_agg_regiao = ies_agg_regiao.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Total_Pop_IES':'Total_Pop_UF_IES',
                                         'Total_Pop_IBGE_2022':'Total_Pop_UF',
                                         'Total_Mun_IBGE_2022':'Total_Mun_UF',
@@ -81,9 +86,18 @@ ies_agg_regiao = ies_agg_regiao.rename(columns={'Total_mun':'Total_mun_IES',
                                         'Cob_Meso':'Cob_Meso_com_IES',
                                         'Cob_Micro':'Cob_Micro_com_IES'})
 
-ies_agg_regiao = ies_agg_regiao[['REGIAO', 'NOME_REGIAO', 'Total_Pop_UF', 'Total_Mun_UF', 'Total_Meso_UF', 'Total_Micro_UF',
-                         'Total_IES', 'Total_Priv', 'Total_Publ','Total_mun_IES', 'Total_Pop_UF_IES',
-                         'Total_Meso_IES','Total_Micro_IES']]
+    ies_agg_regiao = ies_agg_regiao[['REGIAO', 'NOME_REGIAO', 'Total_Pop_UF', 'Total_Mun_UF', 'Total_Meso_UF','Total_Micro_UF','Total_IES', 'Total_Priv', 'Total_Publ','Total_mun_IES', 'Total_Pop_UF_IES','Total_Meso_IES','Total_Micro_IES']]
+    return ies_agg_regiao
+    
+
+# ------------------------------------------------------------------------
+# Carregar dados
+# ------------------------------------------------------------------------
+ies = carrega_ies()
+ies_agg_UF = carrega_ies_agg_UF()
+ies_agg_regiao = carrega_ies_agg_regiao()
+
+
 # ------------------------------------------------------------------------
 # Prepara dados IES agregados por campos especificos
 # ------------------------------------------------------------------------				 
@@ -147,12 +161,13 @@ distr_ies_tp_regiao = pd.DataFrame({'Total_IES'   : tot_ies_tp_regiao,
 #--------------------------------------------------------------------------------------------
 # Prepara tabs
 #------------------------------------------------------------------------------------------          
-t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob = st.tabs(['Mapa Interativo',
+t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob, t_ind = st.tabs(['Mapa Interativo',
                                                         'Mapa', 
                                                         'Brasil', 
                                                         'Região', 
                                                         'UF',
-                                                        'Coberturas'])
+                                                        'Coberturas',
+                                                        'Indicadores'])
 css = '''
 <style>
 .stTabs [data-baseweb="tab-list"] {
@@ -662,6 +677,73 @@ with t_cob:
     st.markdown("---")
     
     
+# -----------------------------------------------------------------------------------
+# Tab 07
+# Grafico dispersao
+# -----------------------------------------------------------------------------------
+# Carrega dataframe
 
+@st.cache_data
+def carrega_ies_ind_mun():
+    col = ['CO_REGIAO','CO_UF','CO_MUNICIPIO','UF', 'CodIBGE_6', 'CodIBGE']
+    dict_dtype = {column : 'str'  for column in col}
+    ies_ind_mun = pd.read_csv('./arquivos/total_ies_com_ind_mun.csv', sep='|', 
+                   dtype = dict_dtype, low_memory=False)
+    return ies_ind_mun
+    
+    
+@st.cache_data
+def carrega_definicao_ind():    
+    def_indicadores = pd.read_csv('./arquivos/definicao_indicadores.csv', sep='|', 
+    low_memory=False, encoding='iso-8859-1')
+    return def_indicadores
 
+# carregar dados    
+ies_ind_mun =  carrega_ies_ind_mun()    
+def_indicadores = carrega_definicao_ind()
+lista_indicadores = list(ies_ind_mun.columns[12:119])
+    
+with t_ind:
+    titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Relação dos Indicadores Sociais com Qtd de IES nos municipios</b></p>'
+    st.markdown(titulo_01, unsafe_allow_html=True)
+    
+    st.write("Selecionando-se um indicador social da lista disponível, será apresentado um gráfico de dispersão deste indicador com o total de IES em cada município. O objetivo é detectar se há alguma relação do indicador com o total de IES.") 
+    
+    # prepara lista de opções de indicadores
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione um indicador:</b></p>'
+        st.markdown(label01, unsafe_allow_html=True) 
+    with col2:
+        ind_selected = st.selectbox(label="Selecione um indicador:", options=lista_indicadores, label_visibility="collapsed")
+    with col3:    
+        st.subheader(':dart:')
+    
+    # escreve o indicador
+    nome_ind = def_indicadores[def_indicadores['Indicador']==ind_selected]['NOME LONGO'].values[0]
+    descr_ind = def_indicadores[def_indicadores['Indicador']==ind_selected]['DEFINIÇÃO'].values[0]
+    
+       
+    ind01 = f'<p style="font-family:Courier; color:Black; font-size: 16px;"><b>{ind_selected}:</b>{nome_ind}</p>'
+    st.markdown(ind01, unsafe_allow_html=True)
+    ind02 = f'<p style="font-family:Courier; color:Black; font-size: 14px;">{descr_ind}</p>'
+    st.markdown(ind02, unsafe_allow_html=True)
+    
+    fig = px.scatter(ies_ind_mun,
+                 x=ind_selected, 
+                 y='Total_IES', 
+                 log_x = False, 
+                 color='NO_REGIAO', 
+                 hover_name='NO_MUNICIPIO',
+                 width=900, height=600)
+    fig.update_traces(marker=dict(size = 12,line = dict(width = 2)),selector=dict(mode = 'markers'))
+    fig.update_layout(plot_bgcolor='#dbe0f0')
+    fig.update_layout(yaxis=dict(title='Total IES', titlefont_size=18, tickfont_size=16),
+                              xaxis=dict(titlefont_size=18, tickfont_size=14),  
+                              legend=dict(x=0.1,y=-0.5, font = dict(size = 16)))
+    fig.update_layout(hoverlabel=dict(bgcolor="white", 
+                                      font_size=16,
+                                      font_family="Rockwell"))
+    st.plotly_chart(fig, use_container_width=False)
+    plt.close()
 

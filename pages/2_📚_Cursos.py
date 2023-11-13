@@ -251,8 +251,6 @@ with t_evol_red_org_gr:
     for i in range(len(data3)):
              plt.text(i, data3['Total_cursos'][i]+600,
                       data3['Total_cursos'][i], color='orange', fontsize=14)
-
-    #axes.set_title("Evolução do Total de Cursos PRESENCIAIS por Ano", fontsize=20)
     axes.set_xticklabels(axes.get_xticklabels(), rotation=0, ha="right", fontsize=16)
     axes.set(xlabel=''); axes.set_ylabel('Total Cursos', fontsize=18)
     axes.tick_params(axis='y', labelsize=14)
@@ -882,8 +880,8 @@ with t_sit_br:
                                     labels={'NO_UF_M': 'Estado', 
                                             'Tot_cursos':'Total cursos',
                                             'Tot_cursos_p':'Percentual de cursos'},
-                                             hover_data={'NO_UF_M', 'Tot_cursos','Tot_cursos_p'},
-                                             featureidkey="properties.NM_ESTADO")
+                                    hover_data={'NO_UF_M', 'Tot_cursos','Tot_cursos_p'},
+                                    featureidkey="properties.NM_ESTADO")
         mapa.update_layout(coloraxis_colorbar=dict(len=1, x=0.5, y=-0.15, yanchor='bottom', xanchor='center', orientation='h',  
         title="Quantidade Cursos", titleside = "bottom"),
         margin=dict(t=0, b=0, l=0, r=0))
