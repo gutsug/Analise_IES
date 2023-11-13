@@ -792,7 +792,7 @@ with t_mapas:
     mapa.update_layout(
             coloraxis_colorbar=dict(
                 len=1, x=0.5, y=-0.55, yanchor='bottom', xanchor='center', orientation='h',  
-                title="Quantidade Matrículas", titleside = "bottom"),
+                title="Razão da Quantidade por População do Estado (x1000)", titleside = "bottom"),
                 margin=dict(t=0, b=0, l=0, r=0))
 
     mapa.update_layout(width=1000, height=700)
