@@ -9,6 +9,8 @@ import plotly.express as px
 import streamlit as st
 import geobr
 import geopandas as gpd
+#from st_aggrid import AgGrid
+#from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 
 
@@ -701,13 +703,13 @@ def carrega_definicao_ind():
 # carregar dados    
 ies_ind_mun =  carrega_ies_ind_mun()    
 def_indicadores = carrega_definicao_ind()
-lista_indicadores = list(ies_ind_mun.columns[12:119])
+lista_indicadores = list(def_indicadores['Indicador'])
     
 with t_ind:
     titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Relação dos Indicadores Sociais com Qtd de IES nos municipios</b></p>'
     st.markdown(titulo_01, unsafe_allow_html=True)
     
-    st.write("Selecionando-se um indicador social da lista disponível, será apresentado um gráfico de dispersão deste indicador com o total de IES em cada município. O objetivo é detectar se há alguma relação do indicador com o total de IES.") 
+    st.write("Selecionando-se um indicador social da lista disponível, será apresentado um gráfico de dispersão deste indicador com o total de IES em cada município. O objetivo é detectar se há alguma relação do indicador com o total de IES. Ressalta-se que municípios sem IES não estão contemplados no gráfico.") 
     
     # prepara lista de opções de indicadores
     col1, col2, col3 = st.columns(3)
@@ -715,7 +717,7 @@ with t_ind:
         label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione um indicador:</b></p>'
         st.markdown(label01, unsafe_allow_html=True) 
     with col2:
-        ind_selected = st.selectbox(label="Selecione um indicador:", options=lista_indicadores, label_visibility="collapsed")
+        ind_selected = st.selectbox(label="Selecione um indicador:", options=lista_indicadores, label_visibility="collapsed", index=218)
     with col3:    
         st.subheader(':dart:')
     
@@ -729,6 +731,8 @@ with t_ind:
     ind02 = f'<p style="font-family:Courier; color:Black; font-size: 16px;"><b>Descrição: </b>{descr_ind}</p>'
     st.markdown(ind02, unsafe_allow_html=True)
     
+    # Plot Dispersão (scatter)
+    # ---------------------------------------
     fig = px.scatter(ies_ind_mun,
                  x=ind_selected, 
                  y='Total_IES', 
@@ -746,4 +750,38 @@ with t_ind:
                                       font_family="Rockwell"))
     st.plotly_chart(fig, use_container_width=False)
     plt.close()
+    st.markdown("---")
+    
+    # Dataframe indicadores
+    # ---------------------------------------
+    # exibe o dataframe dos indicadores
+    titulo_02 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Descrição dos Indicadores Sociais</b></p>'
+    st.markdown(titulo_02, unsafe_allow_html=True)
+    st.write("Os dados dos indicadores sociais por município estão disponíveis na plataforma Atlas do Desenvolvimento Humano no Brasil (http://www.atlasbrasil.org.br/acervo/atlas). São mais de 200 indicadores que contemplam diversos temas: economia, censo demográfico, educação, etc.")
+    st.write("Como exemplos podem ser citados: IDHM, Esperança de vida ao nascer, Renda per capita, População por faixa etária, População urbana, Taxa de analfabetismo por faixa etária (11 a 14 anos, 15 a 17 anos, etc.), Percentual da população com ou sem atraso idade-série em diversas modalidades de ensino;  Percentual da população de certas faixas etárias frequentando ou não determinada modalidade de ensino; Percentual de crianças que não frequenta a escola, por faixa etária; entre muitos outros.")
+    
+    # gb = GridOptionsBuilder.from_dataframe(def_indicadores)
+    # gb.configure_pagination(enabled=True, paginationPageSize=10) #paginationPageSize nao funciona
+    # #paginationAutoPageSize=True    
+    # gb.configure_column(field='Indicador', width=100)
+    # gb.configure_column(field='NOME LONGO', width=200, wrapText=True)
+    # gb.configure_column(field='DEFINIÇÃO', width=700, wrapText = True)
+    # gb.configure_column('Indicador', cellStyle={'color': 'blue'})
+    # #gb.configure_side_bar() #Add a sidebar
+    # # gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
+    # gridOptions = gb.build()
+    
+    # AgGrid(def_indicadores,  
+           # gridOptions=gridOptions,
+           # fit_columns_on_grid_load=True)
+           # # data_return_mode='AS_INPUT'
+           # # update_mode='MODEL_CHANGED'
+           # #enable_enterprise_modules=True
+           # #height=1000 # se colocar nao funciona paginacao
+           # # reload_data=True)
+           
+    # #AgGrid(def_indicadores)
+    st.dataframe(def_indicadores, hide_index=True, use_container_width=True, height=1000)
+    #st.table(def_indicadores)
+    #st.markdown(def_indicadores.to_html(escape=False), unsafe_allow_html=True)
 
