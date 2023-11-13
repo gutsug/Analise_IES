@@ -726,7 +726,7 @@ with t_ind:
        
     ind01 = f'<p style="font-family:Courier; color:Black; font-size: 16px;"><b>{ind_selected}:</b>{nome_ind}</p>'
     st.markdown(ind01, unsafe_allow_html=True)
-    ind02 = f'<p style="font-family:Courier; color:Black; font-size: 14px;">{descr_ind}</p>'
+    ind02 = f'<p style="font-family:Courier; color:Black; font-size: 16px;"><b>Descrição: </b>{descr_ind}</p>'
     st.markdown(ind02, unsafe_allow_html=True)
     
     fig = px.scatter(ies_ind_mun,
