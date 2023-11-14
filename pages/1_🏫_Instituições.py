@@ -687,7 +687,7 @@ with t_cob:
 
 @st.cache_data
 def carrega_ies_ind_mun():
-    col = ['CO_REGIAO','CO_UF','CO_MUNICIPIO','UF', 'CodIBGE_6', 'CodIBGE']
+    col = ['Cod_Mesorregiao','Cod_Microrregiao','COD_IBGE','CAPITAL']
     dict_dtype = {column : 'str'  for column in col}
     ies_ind_mun = pd.read_csv('./arquivos/total_ies_com_ind_mun.csv', sep='|', 
                    dtype = dict_dtype, low_memory=False)
@@ -709,7 +709,7 @@ with t_ind:
     titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Relação dos Indicadores Sociais com Qtd de IES nos municipios</b></p>'
     st.markdown(titulo_01, unsafe_allow_html=True)
     
-    st.write("Selecionando-se um indicador social da lista disponível, será apresentado um gráfico de dispersão deste indicador com o total de IES em cada município. O objetivo é detectar se há alguma relação do indicador com o total de IES. Ressalta-se que municípios sem IES não estão contemplados no gráfico.") 
+    st.write("Selecionando-se um indicador social da lista disponível, será apresentado um gráfico de dispersão deste indicador com o total de IES em cada município. O objetivo é detectar se há alguma relação do indicador com o total de IES. Ressalta-se que municípios sem IES não estão contemplados no gráfico; os indicadores são do ano base de 2010. Abaixo do gráfico há uma tabela com a lista da descrição de todos os indicadores sociais.") 
     
     # prepara lista de opções de indicadores
     col1, col2, col3 = st.columns(3)
@@ -737,8 +737,9 @@ with t_ind:
                  x=ind_selected, 
                  y='Total_IES', 
                  log_x = False, 
-                 color='NO_REGIAO', 
-                 hover_name='NO_MUNICIPIO',
+                 color='NOME_REGIAO', 
+                 color_discrete_sequence=px.colors.qualitative.Set2,
+                 hover_name='NOME_MUNICIPIO',
                  width=900, height=600)
     fig.update_traces(marker=dict(size = 12,line = dict(width = 2)),selector=dict(mode = 'markers'))
     fig.update_layout(plot_bgcolor='#dbe0f0')
@@ -759,6 +760,7 @@ with t_ind:
     st.markdown(titulo_02, unsafe_allow_html=True)
     st.write("Os dados dos indicadores sociais por município estão disponíveis na plataforma Atlas do Desenvolvimento Humano no Brasil (http://www.atlasbrasil.org.br/acervo/atlas). São mais de 200 indicadores que contemplam diversos temas: economia, censo demográfico, educação, etc.")
     st.write("Como exemplos podem ser citados: IDHM, Esperança de vida ao nascer, Renda per capita, População por faixa etária, População urbana, Taxa de analfabetismo por faixa etária (11 a 14 anos, 15 a 17 anos, etc.), Percentual da população com ou sem atraso idade-série em diversas modalidades de ensino;  Percentual da população de certas faixas etárias frequentando ou não determinada modalidade de ensino; Percentual de crianças que não frequenta a escola, por faixa etária; entre muitos outros.")
+    st.write("Para acessar a descrição completa de um indicador, basta selecionar a respectiva coluna com um duplo clique.")
     
     # gb = GridOptionsBuilder.from_dataframe(def_indicadores)
     # gb.configure_pagination(enabled=True, paginationPageSize=10) #paginationPageSize nao funciona
