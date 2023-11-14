@@ -163,13 +163,14 @@ distr_ies_tp_regiao = pd.DataFrame({'Total_IES'   : tot_ies_tp_regiao,
 #--------------------------------------------------------------------------------------------
 # Prepara tabs
 #------------------------------------------------------------------------------------------          
-t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob, t_ind = st.tabs(['Mapa Interativo',
+t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob, t_ind, t_corr = st.tabs(['Mapa Interativo',
                                                         'Mapa', 
                                                         'Brasil', 
                                                         'Região', 
                                                         'UF',
                                                         'Coberturas',
-                                                        'Indicadores'])
+                                                        'Indicadores',
+                                                        'Correlação'])
 css = '''
 <style>
 .stTabs [data-baseweb="tab-list"] {
@@ -783,7 +784,66 @@ with t_ind:
            # # reload_data=True)
            
     # #AgGrid(def_indicadores)
-    st.dataframe(def_indicadores, hide_index=True, use_container_width=True, height=1000)
+    st.dataframe(def_indicadores, hide_index=True, use_container_width=True, height=2000)
     #st.table(def_indicadores)
     #st.markdown(def_indicadores.to_html(escape=False), unsafe_allow_html=True)
+    st.markdown("---")
 
+# -----------------------------------------------------------------------------------
+# Tab 08
+# Correlação
+# -----------------------------------------------------------------------------------    
+def corr_spearman(df, lista_col, col_top, k):
+    k = k # número de variáveis
+    corrmat = abs(df[lista_col].corr(method='spearman')) # correlação de spearman
+    cols = corrmat.nlargest(k, col_top).index # o k-ésimo maior valor
+    cm = np.corrcoef(df[cols].values.T) # calcula a correlação
+    
+    sns.set(font_scale=0.4)
+    f, ax = plt.subplots(figsize=(5, 5))
+    
+    mask = np.zeros_like(cm) 
+    mask[np.triu_indices_from(mask)] = True 
+    sns.set_style("white")
+    hm = sns.heatmap(cm, cbar=True, 
+                     annot=True, 
+                     square=True, 
+                     fmt='.2f',
+                     annot_kws={'size': 4}, 
+                     yticklabels=cols.values, 
+                     xticklabels=cols.values, 
+                     mask = mask)
+    return f, cm, cols, corrmat
+    
+with t_corr:
+    titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Correlação da Quantidade de IES com Indicadores Sociais</b></p>'
+    st.markdown(titulo_01, unsafe_allow_html=True)
+    
+    st.write("Um coeficiente de correlação mede o grau pelo qual duas variáveis quantitativas estão associadas ou relacionadas entre si. Embora a correlação não implique em causalidade, pode ser interessante quantificar a relação entre as variáveis através de inúmeras medidas, como o coeficiente de Pearson ou o coeficiente de Spearman. Optou-se pelo uso do coeficiente de Pearson, no qual quanto mais próximo do valor -1 ou 1, maior a correlação. O sinal positivo indica uma correlação direta; o sinal negativo, inversa. Valores próximos de zero indicam uma correlação fraca ou desprezível")     
+    
+    st.write("Nota-se que a variável 'Quantidade de IES' em cada município apresenta correlação alta com variáveis que contabilizam quantidades populacionais.")
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione a quantidade de variáveis:</b></p>'
+        st.markdown(label01, unsafe_allow_html=True) 
+    with col2:
+        k_selected = st.selectbox(label="Selecione a quantidade de variáveis", options=[5,10,15,20], label_visibility="collapsed", index=2)
+    with col3:    
+        st.subheader(':dart:')
+    
+    
+    lista_ind = list(ies_ind_mun.columns[17:249]) + ['Total_IES'] 
+    k = k_selected # the k largest correlations
+    col_top = 'Total_IES'
+    f, cm, cols, corrmat = corr_spearman(ies_ind_mun, lista_ind, col_top, k)
+    
+    st.pyplot(f)
+    plt.close()
+    
+    st.markdown("---")
+    df_ind_corr = def_indicadores[def_indicadores['Indicador'].isin(cols)][['Indicador','NOME LONGO']]
+    st.dataframe(df_ind_corr, hide_index=True, use_container_width=True, height=800)
+    
+
+    
