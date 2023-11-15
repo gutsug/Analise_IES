@@ -130,6 +130,8 @@ url = "https://raw.githubusercontent.com/jonates/opendata/master/arquivos_geoesp
 response = requests.get(url).json()
 geojson_data = response
 
+#with open('./data/unidades_da_federacao.json', encoding='utf-8') as f:
+#    geojson_data = json.load(f)
 
 # ------------------------------------------------------------------------				  
 # Prepara dataframes

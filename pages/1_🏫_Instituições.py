@@ -12,7 +12,12 @@ import geopandas as gpd
 #from st_aggrid import AgGrid
 #from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
-
+# metricas
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+from sklearn.model_selection import train_test_split, KFold, cross_val_score
+from sklearn.metrics import mean_squared_error, r2_score, make_scorer
+from sklearn.preprocessing import RobustScaler
 
 # ------------------------------------------------------------------------
 # Analise IES - 2022
@@ -163,14 +168,15 @@ distr_ies_tp_regiao = pd.DataFrame({'Total_IES'   : tot_ies_tp_regiao,
 #--------------------------------------------------------------------------------------------
 # Prepara tabs
 #------------------------------------------------------------------------------------------          
-t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob, t_ind, t_corr = st.tabs(['Mapa Interativo',
+t_mapa_i, t_mapa, t_br, t_reg, t_uf, t_cob, t_ind, t_corr, t_regr = st.tabs(['Mapa Interativo',
                                                         'Mapa', 
                                                         'Brasil', 
                                                         'Região', 
                                                         'UF',
                                                         'Coberturas',
                                                         'Indicadores',
-                                                        'Correlação'])
+                                                        'Correlação',
+                                                        'Regressão'])
 css = '''
 <style>
 .stTabs [data-baseweb="tab-list"] {
@@ -794,13 +800,13 @@ with t_ind:
 # Correlação
 # -----------------------------------------------------------------------------------    
 def corr_spearman(df, lista_col, col_top, k):
-    k = k # número de variáveis
+    k = k+1 # número de variáveis
     corrmat = abs(df[lista_col].corr(method='spearman')) # correlação de spearman
     cols = corrmat.nlargest(k, col_top).index # o k-ésimo maior valor
     cm = np.corrcoef(df[cols].values.T) # calcula a correlação
     
     sns.set(font_scale=0.4)
-    f, ax = plt.subplots(figsize=(5, 5))
+    f, ax = plt.subplots(figsize=(8, 5))
     
     mask = np.zeros_like(cm) 
     mask[np.triu_indices_from(mask)] = True 
@@ -809,7 +815,7 @@ def corr_spearman(df, lista_col, col_top, k):
                      annot=True, 
                      square=True, 
                      fmt='.2f',
-                     annot_kws={'size': 4}, 
+                     annot_kws={'size': 5}, 
                      yticklabels=cols.values, 
                      xticklabels=cols.values, 
                      mask = mask)
@@ -819,9 +825,9 @@ with t_corr:
     titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Correlação da Quantidade de IES com Indicadores Sociais</b></p>'
     st.markdown(titulo_01, unsafe_allow_html=True)
     
-    st.write("Um coeficiente de correlação mede o grau pelo qual duas variáveis quantitativas estão associadas ou relacionadas entre si. Embora a correlação não implique em causalidade, pode ser interessante quantificar a relação entre as variáveis através de inúmeras medidas, como o coeficiente de Pearson ou o coeficiente de Spearman. Optou-se pelo uso do coeficiente de Pearson, no qual quanto mais próximo do valor -1 ou 1, maior a correlação. O sinal positivo indica uma correlação direta; o sinal negativo, inversa. Valores próximos de zero indicam uma correlação fraca ou desprezível")     
+    st.write("Um coeficiente de correlação mede o grau pelo qual duas variáveis quantitativas estão associadas ou relacionadas entre si. Embora a correlação não implique em causalidade, pode ser interessante quantificar a relação entre as variáveis através de inúmeras medidas, como o coeficiente de Pearson ou o coeficiente de Spearman. Optou-se pelo uso do coeficiente de Pearson, no qual quanto mais próximo do valor -1 ou 1, maior a correlação. O sinal positivo indica uma correlação direta; o sinal negativo, inversa. Valores próximos de zero indicam uma correlação fraca ou desprezível.")     
     
-    st.write("Nota-se que a variável 'Quantidade de IES' em cada município apresenta correlação alta com variáveis que contabilizam quantidades populacionais.")
+    st.write("Nota-se que a variável 'Quantidade de IES' em cada município apresenta correlação alta com variáveis que contabilizam quantidades populacionais em diferentes contextos e faixas etárias.")
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -838,12 +844,150 @@ with t_corr:
     col_top = 'Total_IES'
     f, cm, cols, corrmat = corr_spearman(ies_ind_mun, lista_ind, col_top, k)
     
-    st.pyplot(f)
+    st.pyplot(f, use_container_width=False)
     plt.close()
     
     st.markdown("---")
     df_ind_corr = def_indicadores[def_indicadores['Indicador'].isin(cols)][['Indicador','NOME LONGO']]
     st.dataframe(df_ind_corr, hide_index=True, use_container_width=True, height=800)
     
+# -----------------------------------------------------------------------------------
+# Tab 09
+# Regressão
+# -----------------------------------------------------------------------------------  
 
+# definição de funções
+def plot_real_predicted_values(regressor, x_test, y_test, x_pred, y_pred):
+    fig = plt.figure(figsize=(4.5,2))
+    l = plt.plot(y_pred, y_test, 'bo', label='Dados Reais') 
+    plt.setp(l, markersize=5)        
+    plt.setp(l, markerfacecolor='C6') 
+    xl = np.arange(min(y_test), 1.2*max(y_test),(max(y_test)-min(y_test))/10)
+    yl = xl
+    plt.plot(xl, yl, 'b--', label='Dados preditos')
+    plt.title("Real vs Predito (" + regressor + ")", fontsize=10)
+    plt.ylabel("Valores Reais", fontsize=9)
+    plt.xlabel("Valores Preditos", fontsize=9)
+    plt.legend(loc='best')
+    return fig
+    
+def linear_regression(df, x_data, y_label, p_test, random_state):
+    st.markdown('<p style="font-family:Courier; color:Black; font-size: 16px;"><b>Criação e Execução do Modelo de Regressão Linear</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Courier; color:Red; font-size: 14px; padding:0px; margin:0px;"><b>Estimando a variavel: Total de IES</b>', unsafe_allow_html=True)
+    
+    # Selecionar variáveis preditoras e a target
+    # -------------------------------------------------------
+    df_pred = x_data
+    df_y = df.loc[:,y_label]
+    x = df_pred.to_numpy(); y = df_y.to_numpy().reshape(-1, 1)
+    
+    # Normalização dos dados
+    # -------------------------------------------------------
+    scaler_Rbt = RobustScaler().fit(x)
+    scaler_Rbt_y = RobustScaler().fit(y)
+    x_norm = scaler_Rbt.transform(x)
+    y_norm = scaler_Rbt_y.transform(y)
+    
+    # Separar dados de treino e testes
+    # -------------------------------------------------------
+    x_train, x_test, y_train, y_test = train_test_split(x_norm, 
+                                                        y_norm, 
+                                                        test_size = p_test, 
+                                                        random_state = random_state)
+    # Resumo dos dados 
+    # -------------------------------------------------------
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">Total de registros (observações):  {x.shape[0]}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">Total de variaveis preditoras (atributos):  {x.shape[1]}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">Lista das variaveis preditoras:  {list(x_data.columns)}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">Percentual utilizado para gerar base de teste:  {p_test}</p>', unsafe_allow_html=True)    
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; ">Número aleatório para gerar bases de treino e testes:  {str(random_state)}</p>', unsafe_allow_html=True)    
+            
+    # Criar modelo de regressão linear 
+    # -------------------------------------------------------------
+    lr = LinearRegression()     
+    lr.fit(x_train, y_train)    
+    
+    # Executa Cross Validation para sets de dados de treino
+    # -------------------------------------------------------------
+    CV_r2 = []
+    CV_r2.append(cross_val_score(estimator = lr, X = x_train, y = y_train, cv = 10, scoring='r2'))
+    mediaCV = np.round(CV_r2[0].mean(),5)
+    
+    # Calcula metricas de treino
+    # -------------------------------------------------------------
+    y_pred = lr.predict(x_train)
+    R2_train = np.round(r2_score(y_train, y_pred)*100,2)
+    RMSE_train = np.round(np.sqrt(mean_squared_error(y_train, y_pred)),2)
+
+    # Calcula metricas de testes
+    # -------------------------------------------------------------
+    y_pred = lr.predict(x_test) 
+    R2_test = np.round(r2_score(y_test, y_pred)*100,2)
+    RMSE_test = np.round(np.sqrt(mean_squared_error(y_test, y_pred)),2)
+    
+    # Exibir as métricas 
+    # -------------------------------------------------------------   
+    st.markdown('<p style="font-family:Courier; color:Red; font-size: 14px; padding:0px; margin:0px;"><b>Exibindo os resultados do modelo: </b></p>', unsafe_allow_html=True)    
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">- CV: {str(mediaCV)}</p>', unsafe_allow_html=True)    
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">- R2_score (train): {R2_train}%</p>', unsafe_allow_html=True)        
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px; padding:0px; margin:0px;">- R2_score (test): {R2_test}%</p>', unsafe_allow_html=True)           
+    st.markdown(f'<p style="font-family:Courier; color:Black; font-size: 14px;">- RMSE (test): {RMSE_test}</p>', unsafe_allow_html=True)               
+    
+    # Gera plots
+    # -------------------------------------------------------------    
+    st.markdown('<p style="font-family:Courier; color:Red; font-size: 14px; padding:0px; margin:0px;"><b>Exibindo gráficos de valores preditos e reais:</b></p>', unsafe_allow_html=True)  
+    fig = plot_real_predicted_values("linear regression", x_test, y_test, x_test, y_pred)    
+    return fig 
+    
+
+with t_regr:    
+    titulo_01 = '<p style="font-family:Courier; color:Blue; font-size: 20px;"><b>Regressão Linear: estimar a quantidade de IES em um município a partir de algumas variáveis</b></p>'
+    st.markdown(titulo_01, unsafe_allow_html=True)
+    
+    st.write("A utilização de algoritmos supervisionados de Machine Learning - como a Regressão Linear e suas extensões (Lasso e Ridge), Árvores de Decisão e Máquina de Vetores de Suporte proporcionam a geração de modelos preditivos.") 
+    
+    st.write("Neste caso, selecione algumas variáveis (até quinze variáveis previamente selecionadas conforme relevante grau de correlação), o percentual de registros de municípios para compor a base de teste e um número aleatório (utilizado para a divisão dos dados em treino e testes) - e veja a acurácia do modelo de Regressão Linear Múltipla em prever a quantidade de IES nos municípios.")  
+    
+     # variaveis pre selecionadas que fornecem um bom CV (random=42, perc=0.30)   
+    best_features = ['HOMEM40A44','MULH20A24','MULH25A29','MULH30A34','MULH35A39','MULH40A44','MULHERTOT',
+    'PEA','PEA18M','PESO15','PESO18','PESO25','Pop_urbana','PIA','PIA18M']
+    
+    # lista de variaveis
+    var = list(df_ind_corr['Indicador'].values)
+    
+    
+    label01 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione as variáveis preditoras: </b></p>'
+    st.markdown(label01, unsafe_allow_html=True) 
+    options = st.multiselect(label='Selecione as variáveis de interesse:',options=best_features, label_visibility="collapsed",placeholder='Selecionar variáveis', default=best_features)
+        
+    # informar percentual para base de testes    
+    col3, col4 = st.columns(2)
+    with col3:
+        label02 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione o percentual de registros para teste: </b></p>'
+        st.markdown(label02, unsafe_allow_html=True) 
+    with col4:
+        perc_selected = st.selectbox(label='Selecione o percentual para testes:',options=[5,10,15,20,25,30], index=5,label_visibility="collapsed")        
+        
+    # informar randomm number  
+    col5, col6 = st.columns(2)
+    with col5:
+        label03 = '<p style="font-family:Courier; color:#992600; font-size: 16px;"><b>Selecione um número aleatório para gerar a base de testes: </b></p>'
+        st.markdown(label03, unsafe_allow_html=True) 
+    with col6:
+        random_selected = st.number_input(label = 'Selecione um número aleatório:', min_value=1, max_value=99, value=42, step=1, label_visibility="collapsed")
+        
+    st.markdown("---")
+
+    # prepara dados
+    #ies_ind_mun
+
+    best_features = options
+    x_data = ies_ind_mun.loc[:,best_features]
+        
+    
+    # executa Regressao
+    fig = linear_regression(ies_ind_mun, x_data, 'Total_IES', perc_selected, random_selected)
+    
+    st.pyplot(fig, use_container_width=False)
+    plt.close()
     
